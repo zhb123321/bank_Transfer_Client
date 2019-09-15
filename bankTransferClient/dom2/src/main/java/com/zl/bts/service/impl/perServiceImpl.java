@@ -17,7 +17,7 @@ public class perServiceImpl implements perService {
 	 * @return
 	 * @Cacheable 添加缓存 value属性表示缓存整体唯一标识,key属性标识缓存键值对中的key
 	 */
-	/*@Cacheable(value = "gathering",key = "#uid")*/
+	@Cacheable(value = "gathering",key = "#uid")
 	public Personal findById(Integer uid) {
 		return perDao.findById(uid);
 	}

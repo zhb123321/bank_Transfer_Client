@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.zl.bts.pojo.RestData;
 import com.zl.bts.service.impl.UserClientServiceFallbackFactory;
 
-
-@FeignClient(value="per"/*fallback=UserClientServiceFallbackFactory.class*/)
+@FeignClient(value="per",fallback=UserClientServiceFallbackFactory.class)
 public interface PerService {
 	
-	@RequestMapping("personal/{uid}")
+	@RequestMapping("client/findById/{uid}")
 	RestData findUser(@PathVariable(value="uid")Integer uid);
 
 }
