@@ -139,17 +139,39 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
-		<!-- 	session -->
-			<dependency>
-				<groupId>org.springframework.session</groupId>
-				<artifactId>spring-session-data-redis</artifactId>
-			</dependency>
+
 			<!-- Jackson Json处理工具包 -->
 			 <dependency>
 			    <groupId>com.alibaba</groupId>
 			    <artifactId>fastjson</artifactId>
 			    <version>1.2.44</version>
 			</dependency>
+			<!-- RabbitMq -->
+			<dependency>
+		        <groupId>org.springframework.boot</groupId>
+		        <artifactId>spring-boot-starter-amqp</artifactId>
+    		</dependency>
+    		<!-- activemq -->
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+		</dependency>
+		
+		<!-- quartz定时器 -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+		 <dependency><!-- 该依赖必加，里面有sping对schedule的支持 -->  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context-support</artifactId>  
+        </dependency> 
+
+
   <!--eureka-client客户端 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -212,5 +234,6 @@
 		<module>dom1</module>
 		<module>dom2</module>
 		<module>pojo-api</module>
+		<module>acComsumer</module>
 	</modules>
 </project>
