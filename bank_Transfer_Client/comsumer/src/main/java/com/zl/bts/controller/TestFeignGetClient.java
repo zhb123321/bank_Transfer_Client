@@ -24,12 +24,12 @@ public class TestFeignGetClient {
 			System.err.println(uid);
 			return perService.findUser(uid);
 		}
-	/*	这些星号由左到右按顺序代表 ：     *    *     *     *    *     *   *     
-        				格式： [秒] [分] [小时] [日] [月] [周] [年] */
-		@Scheduled(cron="0/3 * * * * ?")
-		public void testQuartz() {
-			System.err.println("定时开启");
-		}
+//	/*	这些星号由左到右按顺序代表 ：     *    *     *     *    *     *   *     
+//        				格式： [秒] [分] [小时] [日] [月] [周] [年] */
+//		@Scheduled(cron="0/3 * * * * ?")
+//		public void testQuartz() {
+//			System.err.println("定时开启");
+//		}
 		
 		
 }
