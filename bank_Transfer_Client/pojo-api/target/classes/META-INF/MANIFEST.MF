@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: EDZ
+Build-Jdk: 1.8.0_221
+Implementation-Title: pojo-api
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.zl.bts
+Created-By: Maven Integration for Eclipse
+
