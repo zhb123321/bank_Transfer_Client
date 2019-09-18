@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label class="layui-form-label">编辑方式：</label>
 				<div class="layui-input-block">
 					<input type="radio" name="bj" title="在线编辑" checked>
-					<input type="radio" name="bj" title="导入Excel">
+					<input type="radio" name="dr" title="导入Excel">
 				</div>
 			</div>		
 			<table class="layui-hide" id="test" lay-filter="test"></table>
