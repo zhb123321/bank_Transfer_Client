@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="wutong">
+<mapper namespace="com.zl.bts.dao.CapitalAggregateMapper">
 	
-
+	<sql id="capitalAggregate_cloumn">
+		capitalid,outaccount,username,outbankname,inaccount,inbankname,aggregatetype
+		,aggregatedate,balanceupper,balancelower,aggregaterule,signingstatus,deletetype,uptime
+	</sql>
+	<!-- 新增签约单 -->
+	<insert id="addCapitalAggregate" parameterType="CaptialAggregate">
+		insert into CAPITAL_AGGREGATE() values(
+		#{capitalid},#{outaccount},#{username},#{outbankname}
+		,#{inaccount},#{inbankname},#{aggregatetype},
+		#{aggregatedate},#{balanceupper},#{balancelower}
+		,#{aggregaterule},#{signingstatus},#{deletetype},#{uptime}
+		)
 	
-	
+	</insert>
+	<!-- 获取id最大值 -->
+	<select id="getMaxId" resultType="java.math.BigDecimal">
+		select MAX(capitalid) from CAPITAL_AGGREGATE
+	</select>
 	
 </mapper>
