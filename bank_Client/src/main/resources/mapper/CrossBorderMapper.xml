@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.bts.dao.CrossBorderDao">
+	
+	<select id="findCurrency" resultType="Currency">
+		select  CURRENCYID,CURRENCYNAME from CURRENCY
+	</select>
+	
+	<select id="findUser" parameterType="String" resultType="Integer">
+		select  count(1) from ACCOUNT where realname=#{username}
+	</select>
+	<select id="findMoney"  resultType="Long">
+		select money  from ACCOUNT 
+	</select>
+	
+	<select id="findCId"  resultType="Long">
+		select max(cid)  from CROSSBORDER_TRANSFER 
+	</select>
+	
+	<insert id="CrossBorder" >
+		insert into CROSSBORDER_TRANSFER values (
+				cid=#{cid},
+			  userid=#{userid},
+			  username=#{username},
+			  useraddr=#{useraddr},
+			  postcode=#{postcode},
+			  userphone=#{userphone},
+			  inaccount=#{inaccount} ,
+			  bankname=#{bankname},
+			  reusernumber=#{reusernumber},
+			  bankcountry=#{bankcountry},
+			  reusercountry=#{reusercountry},
+			  currencyid=#{currencyid},
+			  reusername=#{reusername},
+			  fxrate=#{fxrate},
+			  moneynumber=#{moneynumber},
+			  message =#{message},
+			  datetime=#{datetime},
+			  status=#{status},        
+			  fee=#{fee},
+			  service=#{service},
+			  deletetype=#{deletetype},
+			  uptime=#{uptime}   
+		
+		
+		)
+	</insert>
+	
+	
+	
+</mapper>
