@@ -105,7 +105,6 @@
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>
-        <version>RELEASE</version>
     </dependency>
 
 		
