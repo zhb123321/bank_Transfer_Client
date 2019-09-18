@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="/css/layui.css">
     <script src="/js/layui.js"></script>
 </head>
-<body style=" overflow-y:auto; overflow-x:auto; height:1000px;">
+<body style=" overflow-y:auto; overflow-x:auto; height:1100px;">
 
 <form class="layui-form" action="">
 <div style="background-color: #DFE6EE">
