@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="/js/layui.js"></script>
 
 </head>
-<body style=" overflow-y:auto; overflow-x:auto; height:1000px;">
+<body style=" overflow-y:auto; overflow-x:auto; height:1100px;">
 <form class="layui-form" action="">
     <div>
         <label class="layui-form-label">付款账户</label>

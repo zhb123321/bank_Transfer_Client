@@ -16,9 +16,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <link rel="stylesheet" type="text/css" href="/css/util.css">
   <link rel="stylesheet" type="text/css" href="/css/login.css">
   <script src="../js/jquery-1.8.3.js"></script>
+  
+  
 </head>
 
 <body>
+<form action="/login" method="post">
 
   <div class="limiter">
     <div class="container-login100" style="background-image:url('/images/loginbg.jpg')">
@@ -27,13 +30,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
           <div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
             <span class="label-input100">用户名</span>
-            <input class="input100" type="text" id="username" name="username" placeholder="请输入用户名" autocomplete="off">
+            <input class="input100" type="text" id="username" name="phone" placeholder="请输入用户名" autocomplete="off">
             <span class="focus-input100" data-symbol="&#xf206;"></span>
           </div>
 
           <div class="wrap-input100 validate-input" data-validate="请输入密码">
             <span class="label-input100">密码</span>
-            <input class="input100" type="password" id="password" name="password" placeholder="请输入密码">
+            <input class="input100" type="password" id="password" name="bpassword" placeholder="请输入密码">
             <span class="focus-input100" data-symbol="&#xf190;"></span>
           </div>
 
@@ -44,9 +47,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
-              <button id="login" class="login100-form-btn">登 录</button>
+              <button id="login" class="login100-form-btn"  >登 录</button>
             </div>
           </div>
+          </form>
 
           <div class="txt1 text-center p-t-54 p-b-20">
             <span>第三方登录</span>
@@ -68,24 +72,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
   </div>
-<script>
+  
+     
+ <script>
  $("#login").click(function(){
 	var username = $("#username").val();//取值
 	var password = $("#password").val();
-	var param = {"username":username,"password":password}; 
+	var param = {"phone":username,"bpassword":password}; 
 	$.ajax({
-        url:"${pageContext.request.contextPath}/logincheck",
-        data:{"username":username,"password":password},
+        url:"${pageContext.request.contextPath}/ajax",
+        data:{"phone":username,"bpassword":password},
         dataType:"json",
         success: function(date){
-        	if(date.result){
-        		window.location.href="${pageContext.request.contextPath}/index";		
+        	if(date){
+        		alert("登入成功");	
         	}else{
-        		alert("用户名或密码错误！！！");
+        		alert("账号或密码有误");
         	}
-        },
-        error:function(){
-        	alert("用户名或密码错误！！！");
         }
     })
 });  
