@@ -302,11 +302,9 @@ td .layui-form-select {
 					url : "pc/plzz",
 					contentType : "application/json",
 					data : JSON.stringify(jsonda),
-					success : function(date) {
-					      console.log(date);  
+					success : function(date) { 
 						 if(date=="success"){
 						    alert(date);
-						    window.location.href='';
 						}  
 					}
 				}) 
