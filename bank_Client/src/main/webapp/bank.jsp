@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="layui-nav-item">
 						<a class="" href="javascript:;">单笔转账</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-id="1" data-title="行内转账" data-url="bank/inBank.jsp" class="site-demo-active" data-type="tabAdd">行内转账</a></dd>
+							<dd><a href="javascript:;" data-id="1" data-title="行内转账" data-url="pc/inbank" class="site-demo-active" data-type="tabAdd">行内转账</a></dd>
 							<dd><a href="javascript:;" data-id="2" data-title="跨行转账" data-url="bank/interBank.jsp" class="site-demo-active" data-type="tabAdd">跨行转账</a></dd>
 							<dd><a href="javascript:;" data-id="3" data-title="跨境转账" data-url="bank/crossBorder.jsp" class="site-demo-active" data-type="tabAdd">跨境转账</a></dd>
 						</dl>

@@ -11,7 +11,7 @@ import org.springframework.jms.annotation.EnableJms;
 
 
 @SpringBootApplication
-/*@MapperScan("com.zl.bts.dao")*/
+@MapperScan("com.zl.bts.dao")
 /** 如果是其他的注册中心，那么推荐使用
   @EnableDiscoveryClient
   */
