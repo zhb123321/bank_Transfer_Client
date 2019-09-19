@@ -1,5 +1,4 @@
 package com.zl.bts.pojo;
-
 import java.sql.Date;
 
 import lombok.Data;
@@ -20,8 +19,6 @@ public class TransactionRecord {
 		private String username;//收款姓名
 		private String outaccount;//收款账号
 		private String uptime;//操作时间
-		private Integer deletetype;//删除状态
-		
-		
-		
+		private Integer deletetype;//删除状态		
 }
+
