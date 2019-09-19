@@ -258,7 +258,7 @@
 	<script>
 		$(function () {
 			//查询收款账户信息
-			$("input[name='reusernumber']").on('change' function () {
+			$("input[name='reusernumber']").on('change', function () {
 				var reusername=$("input[name='reusername']").val();
 				var reusernumber=$("input[name='reusernumber']").val();
 				$.post("CrossBorder/reuser",
@@ -267,7 +267,7 @@
 				},"json");
 			})
 		//根据汇款人姓名查询汇款人是否存在username
-		$("input[name='username']").on('change' function () {
+		$("input[name='username']").on('change', function () {
 				var username=$("input[name='username']").val();
 				$.post("CrossBorder/findUser",
 					{"username":username},function(data){
@@ -276,7 +276,7 @@
 			})
 			
 			//查询当前账户余额与输入金额进行比较moneynumber
-			$("input[name='moneynumber']").on('change' function () {
+			$("input[name='moneynumber']").on('change', function () {
 				var moneynumber=$("input[name='moneynumber']").val();
 				$.post("CrossBorder/findMoney",
 					{"moneynumber":moneynumber},function(data){
