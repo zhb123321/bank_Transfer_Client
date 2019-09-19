@@ -1,17 +1,17 @@
 package com.zl.bts.pojo;
 
-//币种表
+import java.math.BigDecimal;
 
 public class Currency {
-    private Long currencyid;
+    private BigDecimal currencyid;
 
     private String currencyname;
-
-    public Long getCurrencyid() {
+ 
+    public BigDecimal getCurrencyid() {
         return currencyid;
     }
 
-    public void setCurrencyid(Long currencyid) {
+    public void setCurrencyid(BigDecimal currencyid) {
         this.currencyid = currencyid;
     }
 
