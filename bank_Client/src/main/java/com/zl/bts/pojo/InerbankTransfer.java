@@ -2,16 +2,14 @@ package com.zl.bts.pojo;
 
 import java.lang.Long;
 
-public class InterbankTransfer {
-    private Long iid;
+public class InerbankTransfer {
+    private Long nid;
 
     private Long userid;
 
     private Long inaccount;
 
     private String bankname;
-
-    private String bankname2;
 
     private Long outaccount;
 
@@ -41,12 +39,12 @@ public class InterbankTransfer {
 
     private String uptime;
 
-    public Long getIid() {
-        return iid;
+    public Long getNid() {
+        return nid;
     }
 
-    public void setIid(Long iid) {
-        this.iid = iid;
+    public void setNid(Long nid) {
+        this.nid = nid;
     }
 
     public Long getUserid() {
@@ -71,14 +69,6 @@ public class InterbankTransfer {
 
     public void setBankname(String bankname) {
         this.bankname = bankname == null ? null : bankname.trim();
-    }
-
-    public String getBankname2() {
-        return bankname2;
-    }
-
-    public void setBankname2(String bankname2) {
-        this.bankname2 = bankname2 == null ? null : bankname2.trim();
     }
 
     public Long getOutaccount() {

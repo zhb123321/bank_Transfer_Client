@@ -1,6 +1,7 @@
 package com.zl.bts.pojo;
 
-//账户信息
+import java.lang.Long;
+
 public class Account {
     private Long userid;
 
@@ -33,6 +34,8 @@ public class Account {
     private String deletetype;
 
     private String uptime;
+
+    private String money;
 
     public Long getUserid() {
         return userid;
@@ -162,13 +165,11 @@ public class Account {
         this.uptime = uptime == null ? null : uptime.trim();
     }
 
-	@Override
-	public String toString() {
-		return "Account [userid=" + userid + ", realname=" + realname + ", cardnumber=" + cardnumber + ", idcard="
-				+ idcard + ", apassword=" + apassword + ", bpassword=" + bpassword + ", opendate=" + opendate
-				+ ", iopendate=" + iopendate + ", openplace=" + openplace + ", accountype=" + accountype
-				+ ", accountsubject=" + accountsubject + ", phone=" + phone + ", house=" + house + ", amountlimit="
-				+ amountlimit + ", deletetype=" + deletetype + ", uptime=" + uptime + "]";
-	}
-    
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money == null ? null : money.trim();
+    }
 }

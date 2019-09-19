@@ -73,10 +73,10 @@
 			</dependency>
 			<!-- oracle -->
 			<dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>6</version>
-        </dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>6</version>
+		</dependency>
 		
 			<dependency>
 				<groupId>commons-dbcp</groupId>
