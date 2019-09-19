@@ -54,7 +54,7 @@ public class BankUtil {
         return sb.toString();
     }
 
-    public String BankResult(String acct_pan,String acct_name) throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
+    public static String BankResult(String acct_pan,String acct_name,String phone_num,String cert_id) throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
         String result = "";
     	System.err.println(acct_pan);
     	System.err.println(acct_name);
@@ -82,9 +82,9 @@ public class BankUtil {
         Map<String, String> queryParams = new HashMap<String, String>();
         queryParams.put("acct_name", acct_name);
         queryParams.put("acct_pan", acct_pan);
-        queryParams.put("cert_id", "");
+        queryParams.put("cert_id", cert_id);
         queryParams.put("needBelongArea", "true");
-        queryParams.put("phone_num", "");
+        queryParams.put("phone_num", phone_num);
         // body参数
         Map<String, String> bodyParams = new HashMap<String, String>();
 

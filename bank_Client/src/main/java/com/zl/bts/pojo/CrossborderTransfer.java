@@ -1,7 +1,7 @@
 package com.zl.bts.pojo;
 
+import java.lang.Long;
 
-//跨境转账
 public class CrossborderTransfer {
     private Long cid;
 
@@ -29,7 +29,7 @@ public class CrossborderTransfer {
 
     private String reusername;
 
-    private Long fxrate;
+    private Long exchangeyid;
 
     private Long moneynumber;
 
@@ -151,12 +151,12 @@ public class CrossborderTransfer {
         this.reusername = reusername == null ? null : reusername.trim();
     }
 
-    public Long getFxrate() {
-        return fxrate;
+    public Long getExchangeyid() {
+        return exchangeyid;
     }
 
-    public void setFxrate(Long fxrate) {
-        this.fxrate = fxrate;
+    public void setExchangeyid(Long exchangeyid) {
+        this.exchangeyid = exchangeyid;
     }
 
     public Long getMoneynumber() {
@@ -222,16 +222,4 @@ public class CrossborderTransfer {
     public void setUptime(String uptime) {
         this.uptime = uptime == null ? null : uptime.trim();
     }
-
-	@Override
-	public String toString() {
-		return "CrossborderTransfer [cid=" + cid + ", userid=" + userid + ", username=" + username + ", useraddr="
-				+ useraddr + ", postcode=" + postcode + ", userphone=" + userphone + ", inaccount=" + inaccount
-				+ ", bankname=" + bankname + ", reusernumber=" + reusernumber + ", bankcountry=" + bankcountry
-				+ ", reusercountry=" + reusercountry + ", currencyid=" + currencyid + ", reusername=" + reusername
-				+ ", fxrate=" + fxrate + ", moneynumber=" + moneynumber + ", message=" + message + ", datetime="
-				+ datetime + ", status=" + status + ", fee=" + fee + ", service=" + service + ", deletetype="
-				+ deletetype + ", uptime=" + uptime + "]";
-	}
-    
 }

@@ -2,51 +2,490 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.bts.dao.CrossBorderDao">
+<resultMap id="BaseResultMap" type="com.zl.bts.pojo.CrossborderTransfer" >
+    <id column="CID" property="cid" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="USERADDR" property="useraddr" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="DECIMAL" />
+    <result column="USERPHONE" property="userphone" jdbcType="DECIMAL" />
+    <result column="INACCOUNT" property="inaccount" jdbcType="DECIMAL" />
+    <result column="BANKNAME" property="bankname" jdbcType="VARCHAR" />
+    <result column="REUSERNUMBER" property="reusernumber" jdbcType="DECIMAL" />
+    <result column="BANKCOUNTRY" property="bankcountry" jdbcType="VARCHAR" />
+    <result column="REUSERCOUNTRY" property="reusercountry" jdbcType="VARCHAR" />
+    <result column="CURRENCYID" property="currencyid" jdbcType="DECIMAL" />
+    <result column="REUSERNAME" property="reusername" jdbcType="VARCHAR" />
+    <result column="EXCHANGEYID" property="exchangeyid" jdbcType="DECIMAL" />
+    <result column="MONEYNUMBER" property="moneynumber" jdbcType="DECIMAL" />
+    <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+    <result column="DATETIME" property="datetime" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="FEE" property="fee" jdbcType="DECIMAL" />
+    <result column="SERVICE" property="service" jdbcType="DECIMAL" />
+    <result column="DELETETYPE" property="deletetype" jdbcType="VARCHAR" />
+    <result column="UPTIME" property="uptime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CID, USERID, USERNAME, USERADDR, POSTCODE, USERPHONE, INACCOUNT, BANKNAME, REUSERNUMBER, 
+    BANKCOUNTRY, REUSERCOUNTRY, CURRENCYID, REUSERNAME, EXCHANGEYID, MONEYNUMBER, MESSAGE, 
+    DATETIME, STATUS, FEE, SERVICE, DELETETYPE, UPTIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zl.bts.pojo.CrossborderTransferExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CROSSBORDER_TRANSFER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from CROSSBORDER_TRANSFER
+    where CID = #{cid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from CROSSBORDER_TRANSFER
+    where CID = #{cid,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.bts.pojo.CrossborderTransferExample" >
+    delete from CROSSBORDER_TRANSFER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.bts.pojo.CrossborderTransfer" >
+    insert into CROSSBORDER_TRANSFER (CID, USERID, USERNAME, 
+      USERADDR, POSTCODE, USERPHONE, 
+      INACCOUNT, BANKNAME, REUSERNUMBER, 
+      BANKCOUNTRY, REUSERCOUNTRY, CURRENCYID, 
+      REUSERNAME, EXCHANGEYID, MONEYNUMBER, 
+      MESSAGE, DATETIME, STATUS, 
+      FEE, SERVICE, DELETETYPE, 
+      UPTIME)
+    values (#{cid,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, 
+      #{useraddr,jdbcType=VARCHAR}, #{postcode,jdbcType=DECIMAL}, #{userphone,jdbcType=DECIMAL}, 
+      #{inaccount,jdbcType=DECIMAL}, #{bankname,jdbcType=VARCHAR}, #{reusernumber,jdbcType=DECIMAL}, 
+      #{bankcountry,jdbcType=VARCHAR}, #{reusercountry,jdbcType=VARCHAR}, #{currencyid,jdbcType=DECIMAL}, 
+      #{reusername,jdbcType=VARCHAR}, #{exchangeyid,jdbcType=DECIMAL}, #{moneynumber,jdbcType=DECIMAL}, 
+      #{message,jdbcType=VARCHAR}, #{datetime,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{fee,jdbcType=DECIMAL}, #{service,jdbcType=DECIMAL}, #{deletetype,jdbcType=VARCHAR}, 
+      #{uptime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.bts.pojo.CrossborderTransfer" >
+    insert into CROSSBORDER_TRANSFER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        CID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="useraddr != null" >
+        USERADDR,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="userphone != null" >
+        USERPHONE,
+      </if>
+      <if test="inaccount != null" >
+        INACCOUNT,
+      </if>
+      <if test="bankname != null" >
+        BANKNAME,
+      </if>
+      <if test="reusernumber != null" >
+        REUSERNUMBER,
+      </if>
+      <if test="bankcountry != null" >
+        BANKCOUNTRY,
+      </if>
+      <if test="reusercountry != null" >
+        REUSERCOUNTRY,
+      </if>
+      <if test="currencyid != null" >
+        CURRENCYID,
+      </if>
+      <if test="reusername != null" >
+        REUSERNAME,
+      </if>
+      <if test="exchangeyid != null" >
+        EXCHANGEYID,
+      </if>
+      <if test="moneynumber != null" >
+        MONEYNUMBER,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+      <if test="datetime != null" >
+        DATETIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="fee != null" >
+        FEE,
+      </if>
+      <if test="service != null" >
+        SERVICE,
+      </if>
+      <if test="deletetype != null" >
+        DELETETYPE,
+      </if>
+      <if test="uptime != null" >
+        UPTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddr != null" >
+        #{useraddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=DECIMAL},
+      </if>
+      <if test="userphone != null" >
+        #{userphone,jdbcType=DECIMAL},
+      </if>
+      <if test="inaccount != null" >
+        #{inaccount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankname != null" >
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="reusernumber != null" >
+        #{reusernumber,jdbcType=DECIMAL},
+      </if>
+      <if test="bankcountry != null" >
+        #{bankcountry,jdbcType=VARCHAR},
+      </if>
+      <if test="reusercountry != null" >
+        #{reusercountry,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyid != null" >
+        #{currencyid,jdbcType=DECIMAL},
+      </if>
+      <if test="reusername != null" >
+        #{reusername,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeyid != null" >
+        #{exchangeyid,jdbcType=DECIMAL},
+      </if>
+      <if test="moneynumber != null" >
+        #{moneynumber,jdbcType=DECIMAL},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        #{datetime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="service != null" >
+        #{service,jdbcType=DECIMAL},
+      </if>
+      <if test="deletetype != null" >
+        #{deletetype,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        #{uptime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.bts.pojo.CrossborderTransferExample" resultType="java.lang.Integer" >
+    select count(*) from CROSSBORDER_TRANSFER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CROSSBORDER_TRANSFER
+    <set >
+      <if test="record.cid != null" >
+        CID = #{record.cid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userid != null" >
+        USERID = #{record.userid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.username != null" >
+        USERNAME = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useraddr != null" >
+        USERADDR = #{record.useraddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postcode != null" >
+        POSTCODE = #{record.postcode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userphone != null" >
+        USERPHONE = #{record.userphone,jdbcType=DECIMAL},
+      </if>
+      <if test="record.inaccount != null" >
+        INACCOUNT = #{record.inaccount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bankname != null" >
+        BANKNAME = #{record.bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reusernumber != null" >
+        REUSERNUMBER = #{record.reusernumber,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bankcountry != null" >
+        BANKCOUNTRY = #{record.bankcountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reusercountry != null" >
+        REUSERCOUNTRY = #{record.reusercountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currencyid != null" >
+        CURRENCYID = #{record.currencyid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reusername != null" >
+        REUSERNAME = #{record.reusername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exchangeyid != null" >
+        EXCHANGEYID = #{record.exchangeyid,jdbcType=DECIMAL},
+      </if>
+      <if test="record.moneynumber != null" >
+        MONEYNUMBER = #{record.moneynumber,jdbcType=DECIMAL},
+      </if>
+      <if test="record.message != null" >
+        MESSAGE = #{record.message,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datetime != null" >
+        DATETIME = #{record.datetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fee != null" >
+        FEE = #{record.fee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.service != null" >
+        SERVICE = #{record.service,jdbcType=DECIMAL},
+      </if>
+      <if test="record.deletetype != null" >
+        DELETETYPE = #{record.deletetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uptime != null" >
+        UPTIME = #{record.uptime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CROSSBORDER_TRANSFER
+    set CID = #{record.cid,jdbcType=DECIMAL},
+      USERID = #{record.userid,jdbcType=DECIMAL},
+      USERNAME = #{record.username,jdbcType=VARCHAR},
+      USERADDR = #{record.useraddr,jdbcType=VARCHAR},
+      POSTCODE = #{record.postcode,jdbcType=DECIMAL},
+      USERPHONE = #{record.userphone,jdbcType=DECIMAL},
+      INACCOUNT = #{record.inaccount,jdbcType=DECIMAL},
+      BANKNAME = #{record.bankname,jdbcType=VARCHAR},
+      REUSERNUMBER = #{record.reusernumber,jdbcType=DECIMAL},
+      BANKCOUNTRY = #{record.bankcountry,jdbcType=VARCHAR},
+      REUSERCOUNTRY = #{record.reusercountry,jdbcType=VARCHAR},
+      CURRENCYID = #{record.currencyid,jdbcType=DECIMAL},
+      REUSERNAME = #{record.reusername,jdbcType=VARCHAR},
+      EXCHANGEYID = #{record.exchangeyid,jdbcType=DECIMAL},
+      MONEYNUMBER = #{record.moneynumber,jdbcType=DECIMAL},
+      MESSAGE = #{record.message,jdbcType=VARCHAR},
+      DATETIME = #{record.datetime,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=DECIMAL},
+      FEE = #{record.fee,jdbcType=DECIMAL},
+      SERVICE = #{record.service,jdbcType=DECIMAL},
+      DELETETYPE = #{record.deletetype,jdbcType=VARCHAR},
+      UPTIME = #{record.uptime,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.bts.pojo.CrossborderTransfer" >
+    update CROSSBORDER_TRANSFER
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddr != null" >
+        USERADDR = #{useraddr,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=DECIMAL},
+      </if>
+      <if test="userphone != null" >
+        USERPHONE = #{userphone,jdbcType=DECIMAL},
+      </if>
+      <if test="inaccount != null" >
+        INACCOUNT = #{inaccount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankname != null" >
+        BANKNAME = #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="reusernumber != null" >
+        REUSERNUMBER = #{reusernumber,jdbcType=DECIMAL},
+      </if>
+      <if test="bankcountry != null" >
+        BANKCOUNTRY = #{bankcountry,jdbcType=VARCHAR},
+      </if>
+      <if test="reusercountry != null" >
+        REUSERCOUNTRY = #{reusercountry,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyid != null" >
+        CURRENCYID = #{currencyid,jdbcType=DECIMAL},
+      </if>
+      <if test="reusername != null" >
+        REUSERNAME = #{reusername,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangeyid != null" >
+        EXCHANGEYID = #{exchangeyid,jdbcType=DECIMAL},
+      </if>
+      <if test="moneynumber != null" >
+        MONEYNUMBER = #{moneynumber,jdbcType=DECIMAL},
+      </if>
+      <if test="message != null" >
+        MESSAGE = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null" >
+        DATETIME = #{datetime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null" >
+        FEE = #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="service != null" >
+        SERVICE = #{service,jdbcType=DECIMAL},
+      </if>
+      <if test="deletetype != null" >
+        DELETETYPE = #{deletetype,jdbcType=VARCHAR},
+      </if>
+      <if test="uptime != null" >
+        UPTIME = #{uptime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CID = #{cid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.bts.pojo.CrossborderTransfer" >
+    update CROSSBORDER_TRANSFER
+    set USERID = #{userid,jdbcType=DECIMAL},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      USERADDR = #{useraddr,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=DECIMAL},
+      USERPHONE = #{userphone,jdbcType=DECIMAL},
+      INACCOUNT = #{inaccount,jdbcType=DECIMAL},
+      BANKNAME = #{bankname,jdbcType=VARCHAR},
+      REUSERNUMBER = #{reusernumber,jdbcType=DECIMAL},
+      BANKCOUNTRY = #{bankcountry,jdbcType=VARCHAR},
+      REUSERCOUNTRY = #{reusercountry,jdbcType=VARCHAR},
+      CURRENCYID = #{currencyid,jdbcType=DECIMAL},
+      REUSERNAME = #{reusername,jdbcType=VARCHAR},
+      EXCHANGEYID = #{exchangeyid,jdbcType=DECIMAL},
+      MONEYNUMBER = #{moneynumber,jdbcType=DECIMAL},
+      MESSAGE = #{message,jdbcType=VARCHAR},
+      DATETIME = #{datetime,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      FEE = #{fee,jdbcType=DECIMAL},
+      SERVICE = #{service,jdbcType=DECIMAL},
+      DELETETYPE = #{deletetype,jdbcType=VARCHAR},
+      UPTIME = #{uptime,jdbcType=VARCHAR}
+    where CID = #{cid,jdbcType=DECIMAL}
+  </update>
 	
-	<select id="findCurrency" resultType="Currency">
+	<select id="selectCurrency" resultType="com.zl.bts.pojo.Currency">
 		select  CURRENCYID,CURRENCYNAME from CURRENCY
 	</select>
 	
-	<select id="findUser" parameterType="String" resultType="Integer">
-		select  count(1) from ACCOUNT where realname=#{username}
+	<select id="selectMaxCid" resultType="java.lang.Long">
+		select max(cid) from CROSSBORDER_TRANSFER
 	</select>
-	<select id="findMoney"  resultType="Long">
-		select money  from ACCOUNT 
-	</select>
-	
-	<select id="findCId"  resultType="Long">
-		select max(cid)  from CROSSBORDER_TRANSFER 
-	</select>
-	
-	<insert id="CrossBorder" >
-		insert into CROSSBORDER_TRANSFER values (
-				cid=#{cid},
-			  userid=#{userid},
-			  username=#{username},
-			  useraddr=#{useraddr},
-			  postcode=#{postcode},
-			  userphone=#{userphone},
-			  inaccount=#{inaccount} ,
-			  bankname=#{bankname},
-			  reusernumber=#{reusernumber},
-			  bankcountry=#{bankcountry},
-			  reusercountry=#{reusercountry},
-			  currencyid=#{currencyid},
-			  reusername=#{reusername},
-			  fxrate=#{fxrate},
-			  moneynumber=#{moneynumber},
-			  message =#{message},
-			  datetime=#{datetime},
-			  status=#{status},        
-			  fee=#{fee},
-			  service=#{service},
-			  deletetype=#{deletetype},
-			  uptime=#{uptime}   
-		
-		
-		)
-	</insert>
-	
 	
 	
 </mapper>
