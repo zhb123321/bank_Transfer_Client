@@ -44,10 +44,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				form.render();
 				table.render({
 					elem: '#test',
-					url: '/material/list',
+					url: '/cac/showCapitalAggregateOutLine',
 					toolbar: '#toolbarDemo',
 					title: '用户数据表',
-					limit: '5	',
+					limit: '5',
 					limits: [5, 10, 20, 30],
 					height: 300,
 					id: 'contenttable',
@@ -69,37 +69,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							type: 'checkbox',
 							fixed: 'center'
 						}, {
-							field: 'standard',
+							field: 'inaccount',
 							title: '主账户账号',
 							minwidth: 80,
 							unresize: true,
 							sort: true
 						}, {
-							field: 'mname',
+							field: 'username',
 							title: '主账户持卡人',
 							minwidth: 120
 						}, {
-							field: 'num',
+							field: 'inbankname',
 							title: '主账户开户行',
 							minwidth: 150
 						}, {
-							field: 'price',
+							field: 'username',
 							title: '归集账户持卡人',
 							minwidth: 150
 						}, {
-							field: 'price',
+							field: 'aggregatetype',
 							title: '归集方式',
 							minwidth: 150
 						}, {
-							field: 'price',
+							field: 'aggregatedate',
 							title: '归集周期',
 							minwidth: 150
 						}, {
-							field: 'price',
+							field: 'balanceupper',
 							title: '归集账户保留金额',
 							minwidth: 150
 						}, {
-							field: 'price',
+							field: 'signingstatus',
 							title: '审核状态',
 							minwidth: 150
 						}]

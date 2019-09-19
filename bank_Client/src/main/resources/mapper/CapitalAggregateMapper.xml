@@ -9,7 +9,7 @@
 	</sql>
 	<!-- 新增签约单 -->
 	<insert id="addCapitalAggregate" parameterType="CaptialAggregate">
-		insert into CAPITAL_AGGREGATE() values(
+		insert into CAPITAL_AGGREGATE values(
 		#{capitalid},#{outaccount},#{username},#{outbankname}
 		,#{inaccount},#{inbankname},#{aggregatetype},
 		#{aggregatedate},#{balanceupper},#{balancelower}
@@ -22,4 +22,57 @@
 		select MAX(capitalid) from CAPITAL_AGGREGATE
 	</select>
 	
+	<!-- 查询行内资金归集签约单 -->
+	<select id="queryCapitalAggregateInLine" resultType="CaptialAggregate" parameterType="map" >
+	
+	SELECT <include refid="capitalAggregate_cloumn"/>
+		FROM (SELECT <include refid="capitalAggregate_cloumn"/>,ROWNUM r FROM  (SELECT <include refid="capitalAggregate_cloumn"/> FROM CAPITAL_AGGREGATE 
+		WHERE inbankname = '中国建设银行' AND outbankname = '中国建设银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE e.r&gt; #{beginPage}
+		
+	</select>
+	
+	<!-- 查询跨行资金归集签约单 -->
+	<select id="queryCapitalAggregateOutLine" resultType="CaptialAggregate" parameterType="map">
+		SELECT <include refid="capitalAggregate_cloumn"/>
+		FROM (SELECT <include refid="capitalAggregate_cloumn"/>,ROWNUM r FROM  (SELECT <include refid="capitalAggregate_cloumn"/> FROM CAPITAL_AGGREGATE 
+		WHERE inbankname = '中国建设银行' AND outbankname != '中国建设银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE e.r&gt; #{beginPage}
+	
+	</select>
+	<!-- 行内资金归集签约单总数据量 -->
+		<select id="queryTotalCountInLine" resultType="int">
+			SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '中国建设银行'  AND outbankname = '中国建设银行'
+		</select>
+	<!-- 查询跨行资金归集签约单总数据量 -->
+	<select id="queryTotalCountOutLine" resultType="int">
+		SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '中国建设银行'  AND outbankname != '中国建设银行'
+	
+	</select>
+	<!-- 批量删除 + 批量修改-->
+	<update id="updateDeleteType" parameterType="map">
+		update CAPITAL_AGGREGATE 
+		<set>
+			<if test="ca.outaccount!=null">outaccount=#{outaccount},</if>
+			<if test="ca.username!=null">username=#{ca.username},</if>
+			<if test="ca.outbankname!=null">outbankname=#{ca.outbankname},</if>
+			<if test="ca.inaccount!=null">inaccount=#{ca.inaccount},</if>
+			<if test="ca.inbankname!=null">inbankname=#{ca.inbankname},</if>
+			<if test="ca.aggregatetype!=null">aggregatetype=#{ca.aggregatetype},</if>
+			<if test="ca.aggregatedate!=null">aggregatedate=#{ca.aggregatedate},</if>
+			<if test="ca.balanceupper!=null">balanceupper=#{ca.balanceupper},</if>
+			<if test="ca.balancelower!=null">balancelower=#{ca.balancelower},</if>
+			<if test="ca.aggregaterule!=null">aggregaterule=#{ca.aggregaterule},</if>
+			<if test="ca.signingstatus!=null">signingstatus=#{ca.signingstatus},</if>
+			<if test="ca.deletetype!=null">deletetype=#{ca.deletetype},</if>
+			<if test="ca.uptime!=null">uptime=#{ca.uptime},</if>
+		
+		</set>
+		where capitalid in
+		<foreach collection="array" open="(" close=")" separator=","
+				 item="arr" index="index">
+			#{arr}
+		</foreach>
+	
+	</update>
 </mapper>
