@@ -25,30 +25,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 <span class="layui-bg-cyan"><strong>1.设置汇总账户</strong></span><br />
 		
-<form class="layui-form" action="" method="post">
+<form class="layui-form" action="/cac/addCapitalAggregate" method="post">
   <div class="layui-form-item">
     <label class="layui-form-label">账号:</label>
     <div class="layui-input-inline">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入银行卡号" autocomplete="off" class="layui-input">
+      <input type="text" name="inaccount" required  lay-verify="required" placeholder="请输入银行卡号" autocomplete="off" class="layui-input">
     </div>
     <label class="layui-form-label">开户行:</label>
     <div class="layui-input-inline">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
+      <input type="text" name="inbankname" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
     </div>
     <label class="layui-form-label">持卡人姓名:</label>
     <div class="layui-input-inline">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入持卡人姓名" autocomplete="off" class="layui-input">
+      <input type="text" name="username" required  lay-verify="required" placeholder="请输入持卡人姓名" autocomplete="off" class="layui-input">
     </div><br /><br /><br />
     <span class="layui-bg-cyan"><strong>2.设置归集账户</strong></span><br />
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">账号:</label>
     <div class="layui-input-inline">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入银行卡号" autocomplete="off" class="layui-input">
+      <input type="text" name="outaccount" required  lay-verify="required" placeholder="请输入银行卡号" autocomplete="off" class="layui-input">
     </div>
     <label class="layui-form-label">开户行:</label>
     <div class="layui-input-inline">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
+      <input type="text" name="outbankname" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
     </div>
     <label class="layui-form-label">持卡人姓名:</label>
     <div class="layui-input-inline">
@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </select>
     </div>
   </div><br />
-    归集规则:当归集账户余额超出保留金额后,超出部分全部转账至主账户!
+  	归集规则:<input name="" value="当归集账户余额超出保留金额后,超出部分全部转账至主账户!"/>
     </div>
     </div>
     <!--全额归集-->
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </select>
     </div>
   </div><br />
-    归集规则:归集账户余额保留1元,剩余部分全部转账至主账户!
+  	归集规则:<input name="" value="归集账户余额保留1元,剩余部分全部转账至主账户!"/>
     </div>
     </div>
      <!--双向归集-->
@@ -128,7 +128,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </select>
     </div>
   </div>
-    归集规则:当归集账户余额超出金额上限后,超出部分全部转账至主账户,当归集账户余额低于金额下限后,主账户自动将差额补全!
+  
+ 	归集规则: <input name=""  value="当归集账户余额超出金额上限后,超出部分全部转账至主账户,当归集账户余额低于金额下限后,主账户自动将差额补全!"/>
+    
     </div>
     
     </div>
