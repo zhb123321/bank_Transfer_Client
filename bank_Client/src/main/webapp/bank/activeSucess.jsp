@@ -1,36 +1,25 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
-    
     <title>主动收款</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="/css/layui.css">
     <script src="/js/layui.js"></script>
 </head>
 <body>
 <hr class="layui-bg-orange">
 <div style="height: 100px;width: 100%">
     <ul style="margin-top: 30px;margin-left: 500px;font-size: 20px;color: #F68B38">
-        <li>您的主动收款受理成功!</li>
-        <li>对方账户将收到通知</li>
-        <li>一个月内对方未转账将撤销本次交易</li>
+        <li>您的主动收款已经发起!</li>
+
+        <li>请等待对方的回应,稍后确认交易结果.</li>
     </ul>
 </div>
 <hr class="layui-bg-orange">
 
-<div>本次收款信息</div>
+<div>本次转账信息</div>
 <table class="layui-table">
     <colgroup>
         <col width="150">
@@ -46,19 +35,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <th>收款账户开户行</th>
         <th>交易金额</th>
         <th>大写金额</th>
-        <th>手续费用</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>************</td>
-        <td>************</td>
-        <td>张三</td>
-        <td>人名币</td>
-        <td>知领银行</td>
-        <td>9999</td>
-        <td>九千九百九十九</td>
-        <td>99999</td>
+        <td>${entity.userid}</td>
+        <td>${entity.inaccount}</td>
+        <td>${entity.username}</td>
+        <td>人民币</td>
+        <td>中国工商银行</td>
+        <td>${entity.moneynumber}</td>
+        <td>${money}</td>
     </tr>
     </tbody>
 </table>

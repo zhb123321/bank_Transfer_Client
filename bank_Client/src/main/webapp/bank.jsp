@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="layui-nav-item">
 						<a href="javascript:;">收款</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-id="5" data-title="主动收款" data-url="bank/activeCheck.jsp" class="site-demo-active" data-type="tabAdd">主动收款</a>
+							<dd><a href="javascript:;" data-id="5" data-title="主动收款" data-url="bank/active.jsp" class="site-demo-active" data-type="tabAdd">主动收款</a>
 							</dd>
 							<dd><a href="javascript:;" data-id="6" data-title="收款人管理" data-url="Payee-pages/Cashier.jsp" class="site-demo-active" data-type="tabAdd">收款人管理</a>
 							</dd>
