@@ -46,9 +46,9 @@ td .layui-form-select {
 	<div class="layui-form-item">
 		<label class="layui-form-label">银行卡号:</label>
 		<div class="layui-input-block" style="width: 220px;">
-			<select name="keyType" id="key_type" lay-filter="relationship">
+			<select name="inaccount" id="in_account" lay-filter="relationship">
 				<option value="">请选择银行卡号</option>
-				<option value="${list.fname}"></option>
+				<option value="123123123123">123123123123</option>
 			</select>余额：元
 		</div>
 	</div>
@@ -96,10 +96,10 @@ td .layui-form-select {
 		window.viewObj = {
 			tbData : [ {
 				tempId : new Date().valueOf(),
-				standard : '',
-				mname : '',
-				num : 2,
-				price : ''
+				outaccount : '',
+				username : '',
+				bankname : 2,
+				money : ''
 			} ],
 			typeData : [
 				{
@@ -166,28 +166,28 @@ td .layui-form-select {
 				},
 				cols : [
 					[ {
-						field : 'standard',
+						field : 'outaccount',
 						title : '收款人账户',
 						unresize : true,
 						edit : 'text',
 						sort : true
 					}, {
-						field : 'mname',
+						field : 'username',
 						title : '收款人姓名',
 						edit : 'text'
 					}, {
-						field : 'num',
+						field : 'bankname',
 						title : '收款银行',
 						templet : function(d) {
 							var options = viewObj.renderSelectOptions(viewObj.typeData, {
 								valueField : "id",
 								textField : "name",
-								selectedValue : d.num
+								selectedValue : d.type
 							});
 							return '<a lay-event="type"></a><select name="type" lay-filter="type"><option value="">请选择分类</option>' + options + '</select>';
 						}
 					}, {
-						field : 'price',
+						field : 'money',
 						title : '转账金额',
 						edit : 'text'
 					}, {
@@ -206,6 +206,45 @@ td .layui-form-select {
 				}
 			});
 			form.render();
+			
+			var active = {			
+			updateRow: function(obj){
+				var oldData = table.cache["contenttable"];				
+				console.log(oldData);
+				for(var i=0, row; i < oldData.length; i++){
+					row = oldData[i];
+					if(row.tempId == obj.tempId){
+						$.extend(oldData[i], obj);
+						return;
+					}
+				}
+				tableIns.reload({
+					data : oldData
+				});
+			},
+			removeEmptyTableCache: function(){
+				var oldData = table.cache["contenttable"];		
+				for(var i=0, row; i < oldData.length; i++){
+					row = oldData[i];
+					if(!row || !row.tempId){
+						oldData.splice(i, 1);    //删除一项
+					}
+					continue;
+				}
+				tableIns.reload({
+					data : oldData
+				});
+			},
+		}
+		
+		//激活事件
+		var activeByType = function (type, arg) {
+			if(arguments.length === 2){					
+				active[type] ? active[type].call(this, arg) : '';
+			}else{
+				active[type] ? active[type].call(this) : '';
+			}
+		}
 	
 			//监听select下拉选中事件
 			form.on('select(type)', function(data) {
@@ -236,41 +275,17 @@ td .layui-form-select {
 					//获取之前编辑过的全部数据，前提是编辑数据是要更新缓存，stock_add_table 为表格的id	
 					tableBak.push({
 						tempId : new Date().valueOf(),
-						"standard" : "",
-						"mname" : "",
-						"num" : "",
-						"price" : ""
+						outaccount : "",
+						username : "",
+						bankname : 1,
+						money : ""
 					});
 					console.log(tableBak);
 					tt.reload({
 						data : tableBak // 将新数据重新载入表格
 					})
 					break;
-				case 'deleteBySelect':
-					var data = checkStatus.data;
-					var ids = [];
-					for (var i = 0; i < data.length; i++) {
-						ids.push(data[i].mid);
-					}
-					layer.confirm('真的删除选中的么？', function(index) {
-						$.ajax({
-							url : "/material/delete",
-							type : "get",
-							data : {
-								"mid" : JSON.stringify(ids)
-							},
-							dataType : "json",
-							success : function(data) {
-								obj.del();
-							}
-						});
-						//关闭弹框
-						window.location.reload(); //刷新页面
-						layer.close(); //关闭当前页
-					});
-					break;
-				}
-				;
+				}				
 			});
 	
 			form.on('submit(formDemo)', function(data) {
@@ -279,22 +294,54 @@ td .layui-form-select {
 				console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
 				console.log(tableBak);
 				var jsonda={
-					"dd":data.field,
-					"ss":tableBak	
+					dd:data.field,
+					ss:tableBak	
 				}
 				$.ajax({
 				    type:"POST",
-                    async:false,
 					url : "pc/plzz",
 					contentType : "application/json",
-					dataType : "json",
 					data : JSON.stringify(jsonda),
-					success : function(date) {
-						
-					},
-				})
-				return false;
+					success : function(date) { 
+						 if(date=="success"){
+						    alert(date);
+						}  
+					}
+				}) 
+			
 			});
+			
+			
+			table.on('tool(test)', function (obj) {
+			var data = obj.data, event = obj.event, tr = obj.tr; //获得当前行 tr 的DOM对象;
+			console.log(data);
+			console.log(event);
+			var select = tr.find("select[name='type']");
+			var selectedVal = select.val();
+			console.log(selectedVal);
+			switch(event){
+				case "type":
+					//console.log(data);
+					var select = tr.find("select[name='type']");
+					if(select){						
+						var selectedVal = select.val();
+						if(!selectedVal){
+							layer.tips("请选择一个分类", select.next('.layui-form-select'), { tips: [3, '#FF5722'] }); //吸附提示
+						}
+						console.log(selectedVal);
+						$.extend(obj.data, {'bankname': selectedVal});
+						activeByType('updateRow', obj.data);	//更新行记录对象
+					}
+					break;										
+				case "del":
+					layer.confirm('真的删除行么？',{btn : [ '确定', '取消' ]},  function(index){
+					  obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+					  layer.close(index);
+					  activeByType('removeEmptyTableCache');
+					});
+					break;						
+			} 
+		});
 	
 	
 		/* //单击行勾选checkbox事件

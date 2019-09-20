@@ -26,10 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
       
         <form class="login100-form validate-form" action="/regist" method="post">
-          <span class="login100-form-title p-b-49">注册账户</span>
+          <span class="login100-form-title p-b-49">开通网银</span>
 
           <div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
-            <span class="label-input100">用户名</span>
+            <span class="label-input100">银行卡号</span>
             <input class="input100" type="text" name="username" placeholder="请输入用户名" autocomplete="off">
             <span class="focus-input100" data-symbol="&#xf206;"></span>
           </div>

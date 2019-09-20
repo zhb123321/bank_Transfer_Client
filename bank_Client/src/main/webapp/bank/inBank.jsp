@@ -13,8 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="/js/layui.js"></script>
 
 </head>
+
 <body style=" overflow-y:auto; overflow-x:auto; height:1000px;">
-<form class="layui-form" action="">
+<form class="layui-form" action="/acc/next">
     <div>
         <label class="layui-form-label">付款账户</label>
         <div class="layui-input-inline">
@@ -84,7 +85,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <input type="radio" name="sex" value="极速到账" title="极速到账">
         <input type="radio" name="sex" value="当日到账" title="当日到账" checked>
         <input type="radio" name="sex" value="隔日到账" title="隔日到账" checked>
-    </div>
     </div>
 
 
