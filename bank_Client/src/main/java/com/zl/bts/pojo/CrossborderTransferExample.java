@@ -1,6 +1,6 @@
 package com.zl.bts.pojo;
 
-import java.math.BigDecimal;
+import java.lang.Long;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,52 +115,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andCidEqualTo(BigDecimal value) {
+        public Criteria andCidEqualTo(Long value) {
             addCriterion("CID =", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidNotEqualTo(BigDecimal value) {
+        public Criteria andCidNotEqualTo(Long value) {
             addCriterion("CID <>", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidGreaterThan(BigDecimal value) {
+        public Criteria andCidGreaterThan(Long value) {
             addCriterion("CID >", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andCidGreaterThanOrEqualTo(Long value) {
             addCriterion("CID >=", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidLessThan(BigDecimal value) {
+        public Criteria andCidLessThan(Long value) {
             addCriterion("CID <", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andCidLessThanOrEqualTo(Long value) {
             addCriterion("CID <=", value, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidIn(List<BigDecimal> values) {
+        public Criteria andCidIn(List<Long> values) {
             addCriterion("CID in", values, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidNotIn(List<BigDecimal> values) {
+        public Criteria andCidNotIn(List<Long> values) {
             addCriterion("CID not in", values, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCidBetween(Long value1, Long value2) {
             addCriterion("CID between", value1, value2, "cid");
             return (Criteria) this;
         }
 
-        public Criteria andCidNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCidNotBetween(Long value1, Long value2) {
             addCriterion("CID not between", value1, value2, "cid");
             return (Criteria) this;
         }
@@ -175,52 +175,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andUseridEqualTo(BigDecimal value) {
+        public Criteria andUseridEqualTo(Long value) {
             addCriterion("USERID =", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridNotEqualTo(BigDecimal value) {
+        public Criteria andUseridNotEqualTo(Long value) {
             addCriterion("USERID <>", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridGreaterThan(BigDecimal value) {
+        public Criteria andUseridGreaterThan(Long value) {
             addCriterion("USERID >", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andUseridGreaterThanOrEqualTo(Long value) {
             addCriterion("USERID >=", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridLessThan(BigDecimal value) {
+        public Criteria andUseridLessThan(Long value) {
             addCriterion("USERID <", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andUseridLessThanOrEqualTo(Long value) {
             addCriterion("USERID <=", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridIn(List<BigDecimal> values) {
+        public Criteria andUseridIn(List<Long> values) {
             addCriterion("USERID in", values, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridNotIn(List<BigDecimal> values) {
+        public Criteria andUseridNotIn(List<Long> values) {
             addCriterion("USERID not in", values, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andUseridBetween(Long value1, Long value2) {
             addCriterion("USERID between", value1, value2, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andUseridNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andUseridNotBetween(Long value1, Long value2) {
             addCriterion("USERID not between", value1, value2, "userid");
             return (Criteria) this;
         }
@@ -435,52 +435,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneEqualTo(BigDecimal value) {
+        public Criteria andUserphoneEqualTo(Long value) {
             addCriterion("USERPHONE =", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneNotEqualTo(BigDecimal value) {
+        public Criteria andUserphoneNotEqualTo(Long value) {
             addCriterion("USERPHONE <>", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneGreaterThan(BigDecimal value) {
+        public Criteria andUserphoneGreaterThan(Long value) {
             addCriterion("USERPHONE >", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andUserphoneGreaterThanOrEqualTo(Long value) {
             addCriterion("USERPHONE >=", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneLessThan(BigDecimal value) {
+        public Criteria andUserphoneLessThan(Long value) {
             addCriterion("USERPHONE <", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andUserphoneLessThanOrEqualTo(Long value) {
             addCriterion("USERPHONE <=", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneIn(List<BigDecimal> values) {
+        public Criteria andUserphoneIn(List<Long> values) {
             addCriterion("USERPHONE in", values, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneNotIn(List<BigDecimal> values) {
+        public Criteria andUserphoneNotIn(List<Long> values) {
             addCriterion("USERPHONE not in", values, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andUserphoneBetween(Long value1, Long value2) {
             addCriterion("USERPHONE between", value1, value2, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserphoneNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andUserphoneNotBetween(Long value1, Long value2) {
             addCriterion("USERPHONE not between", value1, value2, "userphone");
             return (Criteria) this;
         }
@@ -495,52 +495,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andInaccountEqualTo(BigDecimal value) {
+        public Criteria andInaccountEqualTo(Long value) {
             addCriterion("INACCOUNT =", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountNotEqualTo(BigDecimal value) {
+        public Criteria andInaccountNotEqualTo(Long value) {
             addCriterion("INACCOUNT <>", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountGreaterThan(BigDecimal value) {
+        public Criteria andInaccountGreaterThan(Long value) {
             addCriterion("INACCOUNT >", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andInaccountGreaterThanOrEqualTo(Long value) {
             addCriterion("INACCOUNT >=", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountLessThan(BigDecimal value) {
+        public Criteria andInaccountLessThan(Long value) {
             addCriterion("INACCOUNT <", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andInaccountLessThanOrEqualTo(Long value) {
             addCriterion("INACCOUNT <=", value, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountIn(List<BigDecimal> values) {
+        public Criteria andInaccountIn(List<Long> values) {
             addCriterion("INACCOUNT in", values, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountNotIn(List<BigDecimal> values) {
+        public Criteria andInaccountNotIn(List<Long> values) {
             addCriterion("INACCOUNT not in", values, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andInaccountBetween(Long value1, Long value2) {
             addCriterion("INACCOUNT between", value1, value2, "inaccount");
             return (Criteria) this;
         }
 
-        public Criteria andInaccountNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andInaccountNotBetween(Long value1, Long value2) {
             addCriterion("INACCOUNT not between", value1, value2, "inaccount");
             return (Criteria) this;
         }
@@ -625,52 +625,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberEqualTo(BigDecimal value) {
+        public Criteria andReusernumberEqualTo(Long value) {
             addCriterion("REUSERNUMBER =", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberNotEqualTo(BigDecimal value) {
+        public Criteria andReusernumberNotEqualTo(Long value) {
             addCriterion("REUSERNUMBER <>", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberGreaterThan(BigDecimal value) {
+        public Criteria andReusernumberGreaterThan(Long value) {
             addCriterion("REUSERNUMBER >", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andReusernumberGreaterThanOrEqualTo(Long value) {
             addCriterion("REUSERNUMBER >=", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberLessThan(BigDecimal value) {
+        public Criteria andReusernumberLessThan(Long value) {
             addCriterion("REUSERNUMBER <", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andReusernumberLessThanOrEqualTo(Long value) {
             addCriterion("REUSERNUMBER <=", value, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberIn(List<BigDecimal> values) {
+        public Criteria andReusernumberIn(List<Long> values) {
             addCriterion("REUSERNUMBER in", values, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberNotIn(List<BigDecimal> values) {
+        public Criteria andReusernumberNotIn(List<Long> values) {
             addCriterion("REUSERNUMBER not in", values, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andReusernumberBetween(Long value1, Long value2) {
             addCriterion("REUSERNUMBER between", value1, value2, "reusernumber");
             return (Criteria) this;
         }
 
-        public Criteria andReusernumberNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andReusernumberNotBetween(Long value1, Long value2) {
             addCriterion("REUSERNUMBER not between", value1, value2, "reusernumber");
             return (Criteria) this;
         }
@@ -825,52 +825,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidEqualTo(BigDecimal value) {
+        public Criteria andCurrencyidEqualTo(Long value) {
             addCriterion("CURRENCYID =", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidNotEqualTo(BigDecimal value) {
+        public Criteria andCurrencyidNotEqualTo(Long value) {
             addCriterion("CURRENCYID <>", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidGreaterThan(BigDecimal value) {
+        public Criteria andCurrencyidGreaterThan(Long value) {
             addCriterion("CURRENCYID >", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andCurrencyidGreaterThanOrEqualTo(Long value) {
             addCriterion("CURRENCYID >=", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidLessThan(BigDecimal value) {
+        public Criteria andCurrencyidLessThan(Long value) {
             addCriterion("CURRENCYID <", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andCurrencyidLessThanOrEqualTo(Long value) {
             addCriterion("CURRENCYID <=", value, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidIn(List<BigDecimal> values) {
+        public Criteria andCurrencyidIn(List<Long> values) {
             addCriterion("CURRENCYID in", values, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidNotIn(List<BigDecimal> values) {
+        public Criteria andCurrencyidNotIn(List<Long> values) {
             addCriterion("CURRENCYID not in", values, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCurrencyidBetween(Long value1, Long value2) {
             addCriterion("CURRENCYID between", value1, value2, "currencyid");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyidNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCurrencyidNotBetween(Long value1, Long value2) {
             addCriterion("CURRENCYID not between", value1, value2, "currencyid");
             return (Criteria) this;
         }
@@ -955,52 +955,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidEqualTo(BigDecimal value) {
+        public Criteria andExchangeyidEqualTo(Long value) {
             addCriterion("EXCHANGEYID =", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidNotEqualTo(BigDecimal value) {
+        public Criteria andExchangeyidNotEqualTo(Long value) {
             addCriterion("EXCHANGEYID <>", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidGreaterThan(BigDecimal value) {
+        public Criteria andExchangeyidGreaterThan(Long value) {
             addCriterion("EXCHANGEYID >", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andExchangeyidGreaterThanOrEqualTo(Long value) {
             addCriterion("EXCHANGEYID >=", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidLessThan(BigDecimal value) {
+        public Criteria andExchangeyidLessThan(Long value) {
             addCriterion("EXCHANGEYID <", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andExchangeyidLessThanOrEqualTo(Long value) {
             addCriterion("EXCHANGEYID <=", value, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidIn(List<BigDecimal> values) {
+        public Criteria andExchangeyidIn(List<Long> values) {
             addCriterion("EXCHANGEYID in", values, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidNotIn(List<BigDecimal> values) {
+        public Criteria andExchangeyidNotIn(List<Long> values) {
             addCriterion("EXCHANGEYID not in", values, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andExchangeyidBetween(Long value1, Long value2) {
             addCriterion("EXCHANGEYID between", value1, value2, "exchangeyid");
             return (Criteria) this;
         }
 
-        public Criteria andExchangeyidNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andExchangeyidNotBetween(Long value1, Long value2) {
             addCriterion("EXCHANGEYID not between", value1, value2, "exchangeyid");
             return (Criteria) this;
         }
@@ -1015,52 +1015,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberEqualTo(BigDecimal value) {
+        public Criteria andMoneynumberEqualTo(Long value) {
             addCriterion("MONEYNUMBER =", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberNotEqualTo(BigDecimal value) {
+        public Criteria andMoneynumberNotEqualTo(Long value) {
             addCriterion("MONEYNUMBER <>", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberGreaterThan(BigDecimal value) {
+        public Criteria andMoneynumberGreaterThan(Long value) {
             addCriterion("MONEYNUMBER >", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andMoneynumberGreaterThanOrEqualTo(Long value) {
             addCriterion("MONEYNUMBER >=", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberLessThan(BigDecimal value) {
+        public Criteria andMoneynumberLessThan(Long value) {
             addCriterion("MONEYNUMBER <", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andMoneynumberLessThanOrEqualTo(Long value) {
             addCriterion("MONEYNUMBER <=", value, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberIn(List<BigDecimal> values) {
+        public Criteria andMoneynumberIn(List<Long> values) {
             addCriterion("MONEYNUMBER in", values, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberNotIn(List<BigDecimal> values) {
+        public Criteria andMoneynumberNotIn(List<Long> values) {
             addCriterion("MONEYNUMBER not in", values, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andMoneynumberBetween(Long value1, Long value2) {
             addCriterion("MONEYNUMBER between", value1, value2, "moneynumber");
             return (Criteria) this;
         }
 
-        public Criteria andMoneynumberNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andMoneynumberNotBetween(Long value1, Long value2) {
             addCriterion("MONEYNUMBER not between", value1, value2, "moneynumber");
             return (Criteria) this;
         }
@@ -1275,52 +1275,52 @@ public class CrossborderTransferExample {
             return (Criteria) this;
         }
 
-        public Criteria andFeeEqualTo(BigDecimal value) {
+        public Criteria andFeeEqualTo(Long value) {
             addCriterion("FEE =", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeNotEqualTo(BigDecimal value) {
+        public Criteria andFeeNotEqualTo(Long value) {
             addCriterion("FEE <>", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeGreaterThan(BigDecimal value) {
+        public Criteria andFeeGreaterThan(Long value) {
             addCriterion("FEE >", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andFeeGreaterThanOrEqualTo(Long value) {
             addCriterion("FEE >=", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeLessThan(BigDecimal value) {
+        public Criteria andFeeLessThan(Long value) {
             addCriterion("FEE <", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andFeeLessThanOrEqualTo(Long value) {
             addCriterion("FEE <=", value, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeIn(List<BigDecimal> values) {
+        public Criteria andFeeIn(List<Long> values) {
             addCriterion("FEE in", values, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeNotIn(List<BigDecimal> values) {
+        public Criteria andFeeNotIn(List<Long> values) {
             addCriterion("FEE not in", values, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andFeeBetween(Long value1, Long value2) {
             addCriterion("FEE between", value1, value2, "fee");
             return (Criteria) this;
         }
 
-        public Criteria andFeeNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andFeeNotBetween(Long value1, Long value2) {
             addCriterion("FEE not between", value1, value2, "fee");
             return (Criteria) this;
         }

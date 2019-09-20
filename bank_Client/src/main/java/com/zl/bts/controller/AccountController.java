@@ -11,7 +11,6 @@ import com.zl.bts.pojo.Account;
 import com.zl.bts.service.impl.AccountServiceImpl;
 
 @Controller
-@RequestMapping("/acc")
 public class AccountController {
 
 	@Autowired
@@ -43,18 +42,11 @@ public class AccountController {
 	}
 	
 	//跳转到行内转账页面
-	@RequestMapping("/inBank")
+	@RequestMapping("/inbank")
 	public String inbank(Account user, HttpServletRequest request) {
 		System.out.println("进入行内转账");
 		return "/bank/inBank";
 	}
-	
-	//跳转到行内转账页面
-		@RequestMapping("/next")
-		public String inbank() {
-			System.out.println("进入下一步");
-			return "/bank/inBankCheck";
-		}
 	
 	
 

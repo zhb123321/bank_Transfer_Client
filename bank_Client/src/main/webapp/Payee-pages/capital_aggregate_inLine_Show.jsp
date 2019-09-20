@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="/css/layui.css" media="all">
-		
+		</style>
 	</head>
 
 	<body>				
@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 			</script>
 
-		
+		</from>
 		<script src="/js/layui.js" charset="utf-8"></script>
 		<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 		<script>
@@ -44,11 +44,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				form.render();
 				table.render({
 					elem: '#test',
-					url: '/cac/showCapitalAggregateInLine',
+					url: '/material/list',
 					toolbar: '#toolbarDemo',
 					title: '用户数据表',
-					limit: '2',
-					limits: [2, 10, 20, 30],
+					limit: '5	',
+					limits: [5, 10, 20, 30],
 					height: 300,
 					id: 'contenttable',
 					request: {
@@ -69,37 +69,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							type: 'checkbox',
 							fixed: 'center'
 						}, {
-							field: 'inaccount',
+							field: 'standard',
 							title: '主账户账号',
 							minwidth: 80,
 							unresize: true,
 							sort: true
 						}, {
-							field: 'username',
+							field: 'mname',
 							title: '主账户持卡人',
 							minwidth: 120
 						}, {
-							field: 'inbankname',
+							field: 'num',
 							title: '主账户开户行',
 							minwidth: 150
 						}, {
-							field: 'username',
+							field: 'price',
 							title: '归集账户持卡人',
 							minwidth: 150
 						}, {
-							field: 'aggregatetype',
+							field: 'price',
 							title: '归集方式',
 							minwidth: 150
 						}, {
-							field: 'aggregatedate',
+							field: 'price',
 							title: '归集周期',
 							minwidth: 150
 						}, {
-							field: 'balanceupper',
+							field: 'price',
 							title: '归集账户保留金额',
 							minwidth: 150
 						}, {
-							field: 'signingstatus',
+							field: 'price',
 							title: '审核状态',
 							minwidth: 150
 						}]
@@ -150,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							}
 							layer.confirm('真的删除选中的么？', function(index) {
 								$.ajax({
-									url: "/cac/updateDeleteType",
+									url: "/material/delete",
 									type: "get",
 									data: {
 										"mid": JSON.stringify(ids)
