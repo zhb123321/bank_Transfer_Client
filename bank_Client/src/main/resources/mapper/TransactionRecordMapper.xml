@@ -5,7 +5,7 @@
 	
 	<sql id="transactionRecordColumn">
 		tid,userid,realname,inaccount,phone,Invoice,currencyid,money,
-		status,transtype,datatime,bankname,username,outaccount,uptime
+		status,transtype,datetime,bankname,username,outaccount,uptime
 		,deletetype
 	</sql>
 	
@@ -47,5 +47,18 @@
 		SELECT COUNT(1) FROM Transaction_Record WHERE  status = 1
 	
 	</select>
+	<!-- 查询所有转账记录 -->
+	<select id="queryAll" resultType="TransactionRecord" parameterType="map">
 	
+	SELECT <include refid="transactionRecordColumn"/>
+		FROM (SELECT <include refid="transactionRecordColumn"/>,ROWNUM r FROM  (SELECT <include refid="transactionRecordColumn"/> FROM TRANSACTION_RECORD 
+		   ORDER BY tid ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE e.r&gt; #{beginPage}
+	
+	</select>
+	<!-- 查询未完成转账记录总数据量 -->
+	<select id="queryTotalCountAll" resultType="int">
+		SELECT COUNT(1) FROM Transaction_Record 
+	
+	</select>
 </mapper>

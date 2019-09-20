@@ -26,7 +26,7 @@ public class TransactionRecordServiceImpl implements TransactionRecordService{
 	}
 	//查询未完成转账记录
 	public List<TransactionRecord> queryUnFished(Map<String,Object> map){
-		return trdao.queryUnFished(map);
+		return trdao.queryUnFinshed(map);
 	}
 		
 	//查询历史转账记录总数据量
@@ -36,5 +36,14 @@ public class TransactionRecordServiceImpl implements TransactionRecordService{
 	// 查询未完成转账记录总数据量
 	public Integer queryTotalCountUnFinshed() {
 		return trdao.queryTotalCountUnFinshed();
+	}
+	//查询转账记录
+	public List<TransactionRecord> queryAll(Map<String,Object> map){
+		return trdao.queryAll(map);
+	}
+	//查询历史转账记录总数据量
+	public Integer queryTotalCountAll() {
+		return trdao.queryTotalCountAll();
+				
 	}
 }

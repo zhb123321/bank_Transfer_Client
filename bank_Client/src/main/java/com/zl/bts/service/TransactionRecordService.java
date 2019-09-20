@@ -17,4 +17,8 @@ public interface TransactionRecordService {
 	public Integer queryTotalCountFinshed();
 	// 查询未完成转账记录总数据量
 	public Integer queryTotalCountUnFinshed();
+	//查询转账记录
+	public List<TransactionRecord> queryAll(Map<String,Object> map);
+	//查询历史转账记录总数据量
+	public Integer queryTotalCountAll();
 }
