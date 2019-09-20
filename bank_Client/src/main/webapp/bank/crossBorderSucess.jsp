@@ -1,13 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
     <title>跨境转账</title>
     <link rel="stylesheet" href="/css/layui.css">
     <script src="/js/layui.js"></script>
@@ -44,14 +40,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </thead>
     <tbody>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>${entity.userid}</td>
+        <td>${entity.reusernumber}</td>
+        <td>${entity.reusername}</td>
+        <td>${entity.currencyid}</td>
+        <td>${entity.bankname}</td>
+        <td>${entity.moneynumber}</td>
+        <td>${money}</td>
+        <td>${entity.fee}</td>
     </tr>
     </tbody>
 </table>

@@ -222,4 +222,5 @@ public class CrossborderTransfer {
     public void setUptime(String uptime) {
         this.uptime = uptime == null ? null : uptime.trim();
     }
+
 }
