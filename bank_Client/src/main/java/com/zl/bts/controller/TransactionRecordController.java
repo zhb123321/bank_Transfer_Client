@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zl.bts.pojo.Layui;
@@ -19,7 +20,7 @@ public class TransactionRecordController {
 	private TransactionRecordServiceImpl traservice;
 	//查询历史转账记录
 	@RequestMapping("queryFinshedRecord")
-	public Layui queryFinshedRecord(Integer page,Integer limit) {
+	public Layui queryFinshedRecord(Model model,Integer page,Integer limit) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("endPage", page*limit);
 		map.put("beginPage", (page-1)*limit);
