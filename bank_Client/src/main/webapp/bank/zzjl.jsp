@@ -104,6 +104,7 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
       ,{field:'fname', title:'收款人姓名', minwidth:100}
       ,{field:'fname', title:'收款人账号', minwidth:100}
       ,{field:'fname', title:'收款人银行', minwidth:100}
+      ,{field:'fname', title:'交易状态', minwidth:100}
       ,{field:'fname', title:'交易时间', minwidth:100}
       ,{title:'操作', toolbar: '#barDemo', minwidth:200}
     ]]

@@ -18,6 +18,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
+    
  	<dependencies>
  		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,11 +41,11 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 		<!-- 热部署启动 -->
-		<dependency>
+		 <dependency>
 		      <groupId>org.springframework.boot</groupId>
 		      <artifactId>spring-boot-devtools</artifactId>
 		      <scope>provided</scope>
-		      <!--optional我没弄明白，都说必须为true，但我测试true，false，不加都可以-->
+		     <!--  optional我没弄明白，都说必须为true，但我测试true，false，不加都可以 -->
 		      <optional>true</optional>
     	</dependency>
   		<!-- Spring Boot 对lombok插件 支持 -->
@@ -72,10 +73,12 @@
 			</dependency>
 			<!-- oracle -->
 			<dependency>
-				<groupId>com.oracle</groupId>
-				<artifactId>ojdbc8</artifactId>
-				<version>12.2.0.1</version>
-			</dependency>
+
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4.0</version>
+		</dependency> 
+
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
@@ -105,7 +108,6 @@
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>
-        <version>RELEASE</version>
     </dependency>
 
 		
