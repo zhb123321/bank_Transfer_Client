@@ -3,12 +3,49 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.bts.dao.TransactionRecordDao">
 	
+	<sql id="transactionRecordColumn">
+		tid,userid,realname,inaccount,phone,Invoice,currencyid,money,
+		status,transtype,datatime,bankname,username,outaccount,uptime
+		,deletetype
+	</sql>
+	
 	<insert id="addTransactionRecord" parameterType="TransactionRecord">
 		insert into Transaction_Record(tid,inaccount,money,bankname,username,outaccount) values (
 			#{tid},#{inaccount},#{money},#{bankname},#{username},#{outaccount}
 		)
 	</insert>
 	
+	<!-- 查询历史转账记录 -->
+	<select id="queryFinshed" resultType="TransactionRecord" parameterType="map">
 	
+	SELECT <include refid="transactionRecordColumn"/>
+		FROM (SELECT <include refid="transactionRecordColumn"/>,ROWNUM r FROM  (SELECT <include refid="transactionRecordColumn"/> FROM TRANSACTION_RECORD 
+		 where status = 0  ORDER BY tid ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE e.r&gt; #{beginPage}
+	
+	</select>
+	
+	<!-- 查询历史转账记录总数据量 -->
+	<select id="queryTotalCountFinshed" resultType="int">
+		SELECT COUNT(1) FROM Transaction_Record WHERE  status = 0
+	
+	</select>
+	
+	
+	<!-- 查询未完成转账记录 -->
+	<select id="queryUnFinshed" resultType="TransactionRecord" parameterType="map">
+	
+	SELECT <include refid="transactionRecordColumn"/>
+		FROM (SELECT <include refid="transactionRecordColumn"/>,ROWNUM r FROM  (SELECT <include refid="transactionRecordColumn"/> FROM TRANSACTION_RECORD 
+		  where status = 1 ORDER BY tid ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE e.r&gt; #{beginPage}
+	
+	</select>
+	
+	<!-- 查询未完成转账记录总数据量 -->
+	<select id="queryTotalCountUnFinshed" resultType="int">
+		SELECT COUNT(1) FROM Transaction_Record WHERE  status = 1
+	
+	</select>
 	
 </mapper>
