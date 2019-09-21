@@ -26,14 +26,11 @@ $(function () {
  	        	}else{
  	        		$("#check_2").show();
  	        	}
- 	        },
- 	        error:function(){
- 	        	alert("用户名错误！！！");
  	        }
  	    })
  	});
  	//查询汇款账户信息
- 	$("#usernumber").blur(function(){
+ 	$("#userid").blur(function(){
  		var username=$("#username").val();
 		var userid=$("#userid").val();
 		var userphone=$("#userphone").val();
@@ -48,9 +45,6 @@ $(function () {
  	        	}else{
  	        		$("#check_4").show();
  	        	}
- 	        },
- 	        error:function(){
- 	        	alert("用户名错误！！！");
  	        }
  	    })
  	});

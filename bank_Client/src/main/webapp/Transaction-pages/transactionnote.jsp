@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  
 			  table.render({
 			    elem: '#test'
-			    ,url:'/material/list'
+			    ,url:'/trc/queryAllRecord'
 			    ,toolbar: '#toolbarDemo'
 			    ,title: '用户数据表'
 			   	,limit:'5	'
@@ -94,20 +94,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			   		    };
 			   	}
 			    ,cols: [[
-			      {type: 'checkbox', fixed: 'center'}
-			      ,{field:'standard', title:'交易单号', minwidth:120, unresize: true, sort: true}
-			      ,{field:'mname', title:'汇款人姓名', minwidth:120}
-			      ,{field:'num', title:'汇款人账号', minwidth:150}
-			      ,{field:'price', title:'交易类型', minwidth:150}
-			      ,{field:'fname', title:'交易金额', minwidth:100}
-			      ,{field:'fname', title:'交易币种', minwidth:100}
-			      ,{field:'fname', title:'收款人姓名', minwidth:100}
-			      ,{field:'fname', title:'收款人账号', minwidth:100}
-			      ,{field:'fname', title:'收款人银行', minwidth:100}
-			      ,{field:'fname', title:'交易时间', minwidth:100}
-			      ,{title:'操作', toolbar: '#barDemo', minwidth:200}
-			    ]]
-			    ,page:true
+			    	 {type: 'checkbox', fixed: 'center'}
+				      ,{field:'tid', title:'交易单号', minwidth:80, unresize: true, sort: true}
+				      ,{field:'realname', title:'汇款人姓名', minwidth:120}
+				      ,{field:'inaccount', title:'汇款人账号', minwidth:150}
+				      ,{field:'transtype', title:'交易类型', minwidth:150}
+				      ,{field:'money', title:'交易金额', minwidth:100}
+				      ,{field:'currencyid', title:'交易币种', minwidth:100}
+				      ,{field:'username', title:'收款人姓名', minwidth:100}
+				      ,{field:'outaccount', title:'收款人账号', minwidth:100}
+				      ,{field:'bankname', title:'收款人银行', minwidth:100}
+				      ,{field:'status', title:'交易状态', minwidth:100}
+				      ,{field:'datetime', title:'交易时间', minwidth:100}
+				      ,{title:'操作', toolbar: '#barDemo', minwidth:200}
+				    ]]
+				    ,page: true
 			  });
 			  
 			//搜索框的参数获取

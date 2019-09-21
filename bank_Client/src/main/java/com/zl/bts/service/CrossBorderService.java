@@ -12,5 +12,7 @@ public interface CrossBorderService {
 	void insertCrossborderInfo(CrossborderTransfer crossborderTransfer);
 
 	Long findMaxCid();
+
+	CrossborderTransfer findCurrentInfo(Long max);
 	
 }

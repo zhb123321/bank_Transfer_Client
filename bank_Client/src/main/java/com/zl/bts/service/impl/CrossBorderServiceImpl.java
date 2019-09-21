@@ -31,6 +31,12 @@ public class CrossBorderServiceImpl implements CrossBorderService {
 		return crossBorderDao.selectMaxCid();
 	}
 
+	@Override
+	public CrossborderTransfer findCurrentInfo(Long max) {
+		CrossborderTransfer crossborderTransfer = crossBorderDao.selectByCid(max);
+		return crossborderTransfer;
+	}
+
 
 	
 

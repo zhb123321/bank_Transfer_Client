@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.zl.bts.pojo.BankResult;
@@ -19,6 +20,7 @@ import com.zl.bts.pojo.Currency;
 import com.zl.bts.pojo.ShowBody;
 import com.zl.bts.service.CrossBorderService;
 import com.zl.bts.util.BankUtil;
+import com.zl.bts.util.MessageResult;
 
 import lombok.val;
 import oracle.sql.DATE;
@@ -63,27 +65,38 @@ public class CrossBorderController {
 		
 		//将前台页面中的跨境转账信息插入到数据库
 		@RequestMapping("insertCrossBorder")
-		public void insertInfo(CrossborderTransfer crossborderTransfer) {
+		public ModelAndView insertInfo(CrossborderTransfer crossborderTransfer) {
 			Date date = new Date();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			//查询
+			//查询数据库中表的最大字段
 			Long maxCid = crossBorderService.findMaxCid();
 			Long max = maxCid+1;
-			System.out.println(max);
 		    String str = format.format(date);
+		    //设置默认字段
 		    crossborderTransfer.setCid(max);
+		    crossborderTransfer.setInaccount(crossborderTransfer.getUserid());
 			crossborderTransfer.setDatetime(str);
 			crossborderTransfer.setUptime(str);
+			crossborderTransfer.setStatus((long) 1);
+			crossborderTransfer.setFee((long) 12);
+			crossborderTransfer.setService((long) 1);
+			crossborderTransfer.setDeletetype("0");
 			crossBorderService.insertCrossborderInfo(crossborderTransfer);
+			ModelAndView modelAndView = new ModelAndView();
+			modelAndView.setViewName("redirect:/checkCrossBorder?max="+max);
+			return modelAndView;
 		}
 
-		//将插入到数据库中的信息重新展示到页面中
-		@RequestMapping("checkCrossBorder")
-		public String checkInfo() {
-			
-			
-			return "/bank/crossBorderCheck";
+		
+		//短信验证模拟
+		@RequestMapping("checkMessage")
+		@ResponseBody
+		public MessageResult checkMessage(String message) {
+			return new MessageResult("0");
 		}
+		
+
+		
 		
 		
 }

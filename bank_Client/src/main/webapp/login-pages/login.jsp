@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<form action="/login" method="post">
+<form action="/acc/login" method="post">
 
   <div class="limiter">
     <div class="container-login100" style="background-image:url('/images/loginbg.jpg')">
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
 
           <div class="text-right p-t-8 p-b-31">
-            <a href="/reg">立即注册</a>
+            <a href="/login-pages/reg.jsp">立即注册</a>
           </div>
 
           <div class="container-login100-form-btn">
@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var password = $("#password").val();
 	var param = {"phone":username,"bpassword":password}; 
 	$.ajax({
-        url:"${pageContext.request.contextPath}/ajax",
+        url:"${pageContext.request.contextPath}/acc/ajax",
         data:{"phone":username,"bpassword":password},
         dataType:"json",
         success: function(date){
