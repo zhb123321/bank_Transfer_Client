@@ -27,7 +27,7 @@
 	
 	SELECT <include refid="capitalAggregate_cloumn"/>
 		FROM (SELECT <include refid="capitalAggregate_cloumn"/>,ROWNUM r FROM  (SELECT <include refid="capitalAggregate_cloumn"/> FROM CAPITAL_AGGREGATE 
-		WHERE inbankname = '中国建设银行' AND outbankname = '中国建设银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE inbankname = '爱存不存银行' AND outbankname = '爱存不存银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
 		WHERE e.r&gt; #{beginPage}
 		
 	</select>
@@ -36,17 +36,17 @@
 	<select id="queryCapitalAggregateOutLine" resultType="CaptialAggregate" parameterType="map">
 		SELECT <include refid="capitalAggregate_cloumn"/>
 		FROM (SELECT <include refid="capitalAggregate_cloumn"/>,ROWNUM r FROM  (SELECT <include refid="capitalAggregate_cloumn"/> FROM CAPITAL_AGGREGATE 
-		WHERE inbankname = '中国建设银行' AND outbankname != '中国建设银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
+		WHERE inbankname = '爱存不存银行' AND outbankname != '爱存不存银行'   ORDER BY inbankname ) WHERE ROWNUM &lt;= #{endPage})e
 		WHERE e.r&gt; #{beginPage}
 	
 	</select>
 	<!-- 行内资金归集签约单总数据量 -->
 		<select id="queryTotalCountInLine" resultType="int">
-			SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '中国建设银行'  AND outbankname = '中国建设银行'
+			SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '爱存不存银行'  AND outbankname = '爱存不存银行'
 		</select>
 	<!-- 查询跨行资金归集签约单总数据量 -->
 	<select id="queryTotalCountOutLine" resultType="int">
-		SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '中国建设银行'  AND outbankname != '中国建设银行'
+		SELECT COUNT(1) FROM CAPITAL_AGGREGATE WHERE  inbankname = '爱存不存银行'  AND outbankname != '爱存不存银行'
 	
 	</select>
 	<!-- 批量删除 + 批量修改-->

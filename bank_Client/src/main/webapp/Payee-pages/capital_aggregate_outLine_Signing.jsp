@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <label class="layui-form-label">开户行:</label>
     <div class="layui-input-inline">
-      <input type="text"name="inbankname" value="中国建设银行" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
+      <input type="text"name="inbankname" value="爱存不存银行" required  lay-verify="required" placeholder="请输入银行卡开户行" autocomplete="off" class="layui-input">
     </div>
     <label class="layui-form-label">持卡人姓名:</label>
     <div class="layui-input-inline">

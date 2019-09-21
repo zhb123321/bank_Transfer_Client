@@ -75,7 +75,7 @@ public class CaptialAggregateController {
 			
 			
 			
-			//System.out.println(totalCount);
+			System.out.println(totalCount);
 			
 			return Layui.data(totalCount, list);
 			
