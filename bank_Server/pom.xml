@@ -74,11 +74,14 @@
 				</exclusions>
 			</dependency>
 			<!-- oracle -->
-			
+
+			<!-- <dependency>
+	            <groupId>com.oracle</groupId>
+				<artifactId>ojdbc8</artifactId>
+				<version>12.2.0.1</version>
+        	</dependency> -->
 
 			<dependency>
-
-			
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
 				<version>1.4</version>

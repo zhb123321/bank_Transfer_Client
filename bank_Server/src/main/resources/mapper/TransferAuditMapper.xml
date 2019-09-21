@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.bts.dao.TransferAuditDao">
+<!-- 查询记录 -->	
+	<sql id="InerbankPara">
+	    NID, USERID, INACCOUNT, BANKNAME, OUTACCOUNT, USERNAME, MONEY, DATETIME, STATUS, 
+	    TRANSFERTYPE, BALANCE, FEE, CURRENCYID, MODEL, POSTSCRIPT, SERVICE, DELETETYPE, UPTIME
+	</sql>
+	<sql id="CrossborderPara">
+	    CID, USERID, USERNAME, USERADDR, POSTCODE, USERPHONE, INACCOUNT, BANKNAME, REUSERNUMBER, 
+    	BANKCOUNTRY, REUSERCOUNTRY, CURRENCYID, REUSERNAME, EXCHANGEYID, MONEYNUMBER, MESSAGE, 
+    	DATETIME, STATUS, FEE, SERVICE, DELETETYPE, UPTIME
+	</sql>
+	<sql id="InterbankPara">
+	      IID, USERID, INACCOUNT, BANKNAME, BANKNAME2, OUTACCOUNT, USERNAME, MONEY, DATETIME, 
+   		 STATUS, TRANSFERTYPE, BALANCE, FEE, CURRENCYID, MODEL, POSTSCRIPT, SERVICE, DELETETYPE, 
+    	UPTIME
+	</sql>
+	
+
+	<select id="InerbankInfo" parameterType="page"  resultType="InerbankTransfer">
+		select <include refid="InerbankPara"/> from Inerbank_Transfer	<include refid="whereQCsql"/>
+	</select>
+	<select id="CrossborderInfo" parameterType="page"  resultType="CrossborderTransfer">
+		select <include refid="CrossborderPara"/> from Crossborder_Transfer	<include refid="whereQCsql"/>
+	</select>
+	<select id="InterbankInfo" parameterType="page"  resultType="InterbankTransfer">
+		select <include refid="InterbankPara"/> from Interbank_Transfer	<include refid="whereQCsql"/>
+	</select>
+<!-- 查询账户余额 -->
+	<select id="selectMoney"  resultType="Long">
+		select money  from Account where userid=#{userid}
+	</select>
+<!--改变账户余额  -->
+	<update id="updateAccountMoney" >
+		update Account set money=#{tmoney} where userid=#{userid}
+	</update>
+<!-- 跨境审核结算 -->
+	<select id="queryByCId"  resultType="CrossborderTransfer">
+		select <include refid="CrossborderPara"/> from Crossborder_Transfer where cid=#{cid}
+	</select>
+	<update id="updateCt" parameterType="CrossborderTransfer">
+		update Crossborder_Transfer set status=#{status} ,uptime=#{uptime} where cid=#{cid}
+	</update>
+
+<!-- 行内审核结算 -->
+	<select id="queryByNId"  resultType="InerbankTransfer">
+		select <include refid="InerbankPara"/> from Inerbank_Transfer where nid=#{nid}
+	</select>
+	<update id="updateIt" parameterType="InerbankTransfer">
+		update Inerbank_Transfer set status=#{status} ,uptime=#{uptime} where nid=#{nid}
+	</update> 
+<!-- 跨行审核结算 -->
+	<select id="queryByIId"  resultType="InterbankTransfer">
+		select <include refid="InterbankPara"/> from Interbank_Transfer where iid=#{iid}
+	</select>
+	<update id="updateIit" parameterType="InterbankTransfer">
+		update Interbank_Transfer set status=#{status} ,uptime=#{uptime} where iid=#{iid}
+	</update> 
+
+	
+	
+	<sql id="whereQCsql">
+		<where>
+			<if test="status!=null and status!=''">
+				AND status =#{status} 
+			</if>
+		</where>
+		Order By uptime Desc 
+	</sql> 
+	
+	
+	
+</mapper>

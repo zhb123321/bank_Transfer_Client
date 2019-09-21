@@ -17,8 +17,9 @@ import org.springframework.jms.annotation.EnableJms;
   */
 @EnableEurekaClient /*仅用于使用Eureka作为注册中心*/
 /*@EnableCaching  //开启redis注解模式
-@EnableCircuitBreaker //开启Hystrix断路器
-*//*@EnableJms //启动消息队列 */
+//@EnableCircuitBreaker //开启Hystrix断路器
+/*@EnableJms //启动消息队列 */
+
 /*@EnableScheduling*/ //开启定时间隔投递
 public class BankServerApplication {
 
