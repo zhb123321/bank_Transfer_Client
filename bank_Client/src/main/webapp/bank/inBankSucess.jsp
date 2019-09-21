@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <hr class="layui-bg-orange">
+
 <div style="height: 100px;width: 100%">
     <ul style="margin-top: 30px;margin-left: 500px;font-size: 20px;color: #F68B38">
         <li>您的汇款交易受理成功!</li>
@@ -23,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <hr class="layui-bg-orange">
 
-<div>本次转账信息</div>
+<!-- <div>本次转账信息</div>
 <table class="layui-table">
     <colgroup>
         <col width="150">
@@ -55,7 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     </tbody>
 </table>
+ -->
 <button class="layui-btn" lay-submit lay-filter="formDemo" style="margin-left: 550px;">打印</button>
-<button class="layui-btn" lay-submit lay-filter="formDemo">返回</button>
+<button class="layui-btn" lay-submit lay-filter="formDemo" id="back" onclick="javascript:window.location.href='${pageContext.request.contextPath}/acc/inbank'">返回</button>
 </body>
+
+
+
 </html>

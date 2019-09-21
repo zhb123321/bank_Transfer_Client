@@ -26,10 +26,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label class="layui-form-label">银行卡号:</label>
 				<div class="layui-input-block" style="width: 220px;">
 					<select name="cardnumber" id="card_number" lay-filter="relationship">
-            	<option value="">请选择银行卡号</option>
-       				<option value="1">1</option>
-       				<option value="2">2</option>
-          </select>余额：元
+            	    <option value="">请选择银行卡号</option>
+       				<option value="${w}">${w}</option>
+          </select>余额：<label id="ye"></label>元
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -95,6 +94,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}  
 					}
 				})  
+			
+			});
+			
+			form.on('select(relationship)', function(data) {
+				var elem = data.elem; //得到select原始DOM对象
+				console.log(elem);
+				console.log(data);
+				$("#ye").html(data.value);
 			
 			});
 				

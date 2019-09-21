@@ -35,7 +35,7 @@ public class Account {
 
     private String uptime;
 
-    private String money;
+    private Long money;
 
     public Long getUserid() {
         return userid;
@@ -165,12 +165,12 @@ public class Account {
         this.uptime = uptime == null ? null : uptime.trim();
     }
 
-    public String getMoney() {
+    public Long getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
-        this.money = money == null ? null : money.trim();
+    public void setMoney(Long money) {
+        this.money = money;
     }
 
 	@Override

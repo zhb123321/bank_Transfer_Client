@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.bts.dao.InerBankDao">
+
+	<!--根据用户输入的转账账号判断是否存在 -->
+	<select id="findByNumber" resultType="java.lang.String">
+		select realname from
+		account where cardnumber=#{cardnumber}
+	</select>
+
+	<!-- 获取当前的交易单号 -->
+	<select id="findForNumber" resultType="java.lang.Long">
+		select count(1) from
+		INERBANK_TRANSFER
+	</select>
+
+	<!-- 生成用户交易单 -->
+	<insert id="addIner"
+		parameterType="com.zl.bts.pojo.InerbankTransfer">
+		INSERT INTO INERBANK_TRANSFER(NID, USERID,
+		INACCOUNT,
+		BANKNAME,
+		OUTACCOUNT, USERNAME, MONEY, DATETIME, STATUS,
+		TRANSFERTYPE,
+		BALANCE, FEE, CURRENCYID, MODEL, POSTSCRIPT,
+		SERVICE,
+		DELETETYPE,
+		UPTIME) VALUES (#{nid}, #{userid},
+		#{inaccount}, #{bankname},
+		#{outaccount},
+		#{username},
+		#{money},
+		#{datetime}, #{status},
+		#{transfertype}, #{balance}, #{fee}, #{currencyid}, #{model},
+		#{postscript}, #{service},
+		#{deletetype}, #{uptime})
+
+	</insert>
+
+	<!-- 根据账户查询当前金额 -->
+	
+	<!--加钱 -->
+	<update id="ad" parameterType="Account">
+		UPDATE ACCOUNT SET money =
+		((SELECT money from ACCOUNT WHERE cardnumber =
+		#{cardnumber})+#{money}) WHERE cardnumber = #{cardnumber}
+	</update>
+
+	<!-- 减钱 -->
+	<update id="de" parameterType="Account">
+		UPDATE ACCOUNT SET money =
+		((SELECT money from ACCOUNT WHERE cardnumber =
+		#{cardnumber})-#{money}) WHERE cardnumber = #{cardnumber}
+	</update>
+
+	<!-- 修改状态码 -->
+	<update id="zt" parameterType="InerbankTransfer">
+		UPDATE INERBANK_TRANSFER SET status = #{status} where nid = #{nid}
+	</update>
+	
+	<!-- 修改余额 -->
+	<update id="ye" parameterType="InerbankTransfer">
+		UPDATE INERBANK_TRANSFER SET balance = ((select balance from INERBANK_TRANSFER where nid = #{nid})+#{balance}) where nid = #{nid}
+	</update>
+	
+	<!-- 修改最后操作时间 -->
+<update id="lastTime" parameterType="InerbankTransfer">
+		UPDATE INERBANK_TRANSFER SET uptime = #{uptime} where nid = #{nid}
+	</update>
+
+
+</mapper>

@@ -11,4 +11,8 @@
 		update ACCOUNT set amountlimit=#{amountlimit} where cardnumber=#{cardnumber}	
 	</update>
 	
+	<select id="select" resultType="java.lang.Long" parameterType="java.lang.Long">
+		select cardnumber from ACCOUNT where userid=#{uid} 		
+	</select>
+	
 </mapper>

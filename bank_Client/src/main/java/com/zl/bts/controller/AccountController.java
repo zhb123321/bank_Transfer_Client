@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,18 +18,20 @@ public class AccountController {
 	@Autowired
 	private AccountServiceImpl accImpl;
 
-/*	@RequestMapping("/login")
-	public String loginByPhone(Account user, HttpServletRequest request) {
+
+	@RequestMapping("/login")
+	public String loginByPhone(Account user, HttpServletRequest request,Model model) {
+
 		System.out.println("进入了控制器");
 		System.out.println(user.getPhone() + user.getBpassword());
 		Account acc = accImpl.login(user);
-		System.out.println(acc);
-		request.getSession().setAttribute("user", acc);
+		request.getSession().setAttribute("acc", acc); 
 		if (acc == null) {
 			return "login-pages/login";
 		}
+		model.addAttribute("acc",acc);
 		return "/bank";
-	}*/
+	}
 
 	//ajax验证账户登入状态
 	@RequestMapping("/ajax")
@@ -44,17 +47,24 @@ public class AccountController {
 	
 	//跳转到行内转账页面
 	@RequestMapping("/inBank")
-	public String inbank(Account user, HttpServletRequest request) {
+	public String inbank(Account acc, HttpServletRequest request,Model model) {
 		System.out.println("进入行内转账");
+		 acc=(Account) request.getSession().getAttribute("acc");
+		 System.out.println(acc);
+		 model.addAttribute("acc",acc);
 		return "/bank/inBank";
 	}
 	
 	//跳转到行内转账页面
-		@RequestMapping("/next")
-		public String inbank() {
-			System.out.println("进入下一步");
-			return "/bank/inBankCheck";
+		@RequestMapping("/interBank")
+		public String interBank(Account acc, HttpServletRequest request,Model model) {
+			System.out.println("进入跨行转账");
+			 acc=(Account) request.getSession().getAttribute("acc");
+			 System.out.println(acc);
+			 model.addAttribute("acc",acc);
+			return "/bank/interBank";
 		}
+	
 	
 	
 

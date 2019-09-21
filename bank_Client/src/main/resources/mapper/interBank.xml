@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.bts.dao.InterBankDao">
+
+	<!-- 获取当前的交易单号 -->
+	<select id="findForNumber" resultType="java.lang.Long">
+		select count(1) from
+		interbank_transfer
+	</select>
+
+	<!-- 生成用户交易单 -->
+	<insert id="addIner"
+		parameterType="com.zl.bts.pojo.InterbankTransfer">
+		INSERT INTO INTERBANK_TRANSFER(IID,
+		USERID,
+		INACCOUNT, BANKNAME, BANKNAME2, OUTACCOUNT,
+		USERNAME, MONEY, DATETIME,
+		STATUS, TRANSFERTYPE, BALANCE,
+		FEE, CURRENCYID, MODEL, POSTSCRIPT,
+		SERVICE, DELETETYPE,
+		UPTIME) VALUES (#{iid}, #{userid}, #{inaccount},
+		#{bankname}, #{bankname2}, #{outaccount}, #{username}, #{money},
+		#{datetime},
+		#{status},
+		#{transfertype}, #{balance},
+		#{fee},
+		#{currencyid}, #{model}, #{postscript},
+		#{service}, #{deletetype},
+		#{uptime})
+
+	</insert>
+	
+	<!-- 减钱 -->
+	<update id="de" parameterType="Account">
+		UPDATE ACCOUNT SET money =
+		((SELECT money from ACCOUNT WHERE cardnumber =
+		#{cardnumber})-#{money}) WHERE cardnumber = #{cardnumber}
+	</update>
+
+	<!-- 修改状态码 -->
+	<update id="zt" parameterType="com.zl.bts.pojo.InterbankTransfer">
+		UPDATE INTERBANK_TRANSFER SET status = #{status} where iid = #{iid}
+	</update>
+	
+	<!-- 修改余额 -->
+	<update id="ye" parameterType="com.zl.bts.pojo.InterbankTransfer">
+		UPDATE INTERBANK_TRANSFER SET balance = ((select balance from INERBANK_TRANSFER where iid = #{iid})+#{balance}) where iid = #{iid}
+	</update>
+	
+	<!-- 修改最后操作时间 -->
+<update id="lastTime" parameterType="com.zl.bts.pojo.InterbankTransfer">
+		UPDATE INTERBANK_TRANSFER SET uptime = #{uptime} where iid = #{iid}
+	</update>
+
+	
+
+
+
+</mapper>
