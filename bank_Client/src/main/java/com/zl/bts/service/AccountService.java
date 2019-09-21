@@ -7,4 +7,6 @@ public interface AccountService {
 	public Account login(Account a);
 	//账户限额
 	public boolean updataAccount(Long amountlimit,Long cardnumber);
+	//通过userid查银行卡号
+	public Long select(Long uid);
 }

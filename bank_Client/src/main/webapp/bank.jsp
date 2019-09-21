@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="layui-nav-item">
 						<a href="javascript:;">账户限额</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-id="4" data-title="在线支付管理" data-url="Transaction-pages/zhxe.jsp" class="site-demo-active" data-type="tabAdd">在线支付管理</a></dd>
+							<dd><a href="javascript:;" data-id="4" data-title="在线支付管理" data-url="pc/xe" class="site-demo-active" data-type="tabAdd">在线支付管理</a></dd>
 						</dl>
 					</li>
 					<li class="layui-nav-item">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="layui-nav-item">
 						<a href="javascript:;">批量转账</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-id="11" data-title="自选批量转账" data-url="bank/plzz.jsp" class="site-demo-active" data-type="tabAdd">自选批量转账</a>
+							<dd><a href="javascript:;" data-id="11" data-title="自选批量转账" data-url="pc/pl" class="site-demo-active" data-type="tabAdd">自选批量转账</a>
 							</dd>
 						</dl>
 					</li>

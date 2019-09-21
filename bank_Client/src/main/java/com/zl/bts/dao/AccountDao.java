@@ -11,4 +11,6 @@ public interface AccountDao {
 	public Account loginByPhone(Account a);
 	//账户限额
 	public int updataAccount(@Param("amountlimit") Long amountlimit,@Param("cardnumber") Long cardnumber);
+	//通过userid查银行卡号
+	public Long select(Long uid);
 }

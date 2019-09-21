@@ -17,7 +17,7 @@ public class AccountController {
 	@Autowired
 	private AccountServiceImpl accImpl;
 
-/*	@RequestMapping("/login")
+	@RequestMapping("/login")
 	public String loginByPhone(Account user, HttpServletRequest request) {
 		System.out.println("进入了控制器");
 		System.out.println(user.getPhone() + user.getBpassword());
@@ -28,7 +28,7 @@ public class AccountController {
 			return "login-pages/login";
 		}
 		return "/bank";
-	}*/
+	}
 
 	//ajax验证账户登入状态
 	@RequestMapping("/ajax")

@@ -48,7 +48,7 @@ td .layui-form-select {
 		<div class="layui-input-block" style="width: 220px;">
 			<select name="inaccount" id="in_account" lay-filter="relationship">
 				<option value="">请选择银行卡号</option>
-				<option value="123123123123">123123123123</option>
+				<option value="${w}">${w}</option>
 			</select>余额：<label id="ye"></label>元
 		</div>
 	</div>
@@ -256,8 +256,7 @@ td .layui-form-select {
 				console.log(elem);
 				console.log(data);
 				$("#ye").html(data.value);
-				
-				
+			
 			});
 			
 

@@ -26,5 +26,11 @@ public class AccountServiceImpl implements AccountService {
 		return a>0;
 	}
 
+	@Override
+	public Long select(Long uid) {
+		// TODO Auto-generated method stub
+		return dao.select(uid);
+	}
+
 
 }
