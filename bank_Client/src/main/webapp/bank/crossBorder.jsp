@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/css/layui.css">
 <script src="/js/layui.js"></script>
 <script src="/js/jquery-1.8.3.js"></script>
+</head>
 <script>	
 $(function () {
 	//查询收款账户信息
@@ -71,7 +72,7 @@ $(function () {
 					
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -86,7 +87,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	     <span class="layui-icon layui-icon-ok"></span>
+	      
 	    </div>
 	  </div>
 	  
@@ -101,7 +102,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	    <span class="layui-icon layui-icon-ok"></span>
+	     
 	    </div>
 	  </div>
 	  
@@ -139,7 +140,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -155,7 +156,6 @@ $(function () {
 			</div>
 	    </div>
 	     <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok" ></span>
 	    </div>
 	  </div>
 	  
@@ -173,7 +173,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -194,7 +194,7 @@ $(function () {
 					style="width: 220px">
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -209,7 +209,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -224,7 +224,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -245,11 +245,14 @@ $(function () {
 	    </div>
 	  </div>
 	  
-	  
-	  
-		
-		
-		<span style="margin-left: 20px">国家地区: <span>China(中国)</span></span><br />
+	   <div class="layui-form-item">
+	    <div class="layui-inline">
+	     <label class="layui-form-label">国家地区: </label>
+	    </div>
+	    <div class="layui-inline">
+	    <label class="layui-form-label">China(中国)</label>
+	    </div>
+	  </div>
 		
 		<div class="layui-form-item">
 	    <div class="layui-inline">
@@ -260,7 +263,7 @@ $(function () {
 			<div style="margin-left: 110px;font-size: 13px;color: red">请填写详细地址,必须详细到门牌号,否则将影响您的款项的汇出</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 		
@@ -275,7 +278,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -296,7 +299,7 @@ $(function () {
 					style="width: 220px">
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
@@ -325,7 +328,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 
@@ -339,7 +342,7 @@ $(function () {
 			<div style="margin-left: 110px;font-size: 13px;color: red">请用英文如实填写您的汇款用途/原因,如未如实填写,可能导致收款人无法顺利收到汇款</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 
@@ -359,7 +362,7 @@ $(function () {
 			</div>
 	    </div>
 	    <div class="layui-inline">
-	      <span class="layui-icon layui-icon-ok"></span>
+	       
 	    </div>
 	  </div>
 	  
