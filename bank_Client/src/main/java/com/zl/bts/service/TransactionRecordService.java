@@ -7,6 +7,7 @@ import java.util.Map;
 import com.zl.bts.pojo.CrossborderTransfer;
 import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.InterbankTransfer;
+import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
 
 public interface TransactionRecordService {

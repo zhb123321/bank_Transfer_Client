@@ -44,7 +44,7 @@ public class PlzzController {
 			t.setUsername(s.getUsername());
 			t.setUsername(s.getOutaccount());
 			System.out.println("sss");
-			trs.addInerbankTransfer(t);
+			//trs.addInerbankTransfer(t);
 		}
 		return "success";
 	}

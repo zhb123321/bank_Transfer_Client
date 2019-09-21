@@ -19,6 +19,7 @@ public class TransactionRecord {
 		private String username;//收款姓名
 		private String outaccount;//收款账号
 		private String uptime;//操作时间
+
 		private Integer deletetype;//删除状态		
 		public long getTid() {
 			return tid;
@@ -116,6 +117,8 @@ public class TransactionRecord {
 		public void setDeletetype(Integer deletetype) {
 			this.deletetype = deletetype;
 		}
+		
+
 		
 		
 }
