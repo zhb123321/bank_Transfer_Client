@@ -1,23 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zl.bts</groupId>
-  <artifactId>bank_Server</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-   <!--springboot  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.zl.bts</groupId>
+	<artifactId>bank_Server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!--springboot  -->
   	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-   <!--版本管理  -->
+  <!--版本管理  -->
   	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
+    
  	<dependencies>
  		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,11 +43,11 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 		<!-- 热部署启动 -->
-		<dependency>
+		 <dependency>
 		      <groupId>org.springframework.boot</groupId>
 		      <artifactId>spring-boot-devtools</artifactId>
 		      <scope>provided</scope>
-		      <!--optional我没弄明白，都说必须为true，但我测试true，false，不加都可以-->
+		     <!--  optional我没弄明白，都说必须为true，但我测试true，false，不加都可以 -->
 		      <optional>true</optional>
     	</dependency>
   		<!-- Spring Boot 对lombok插件 支持 -->
@@ -72,10 +75,11 @@
 			</dependency>
 			<!-- oracle -->
 			<dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>6</version>
-        </dependency>
+	            <groupId>com.oracle</groupId>
+				<artifactId>ojdbc8</artifactId>
+				<version>12.2.0.1</version>
+        	</dependency>
+
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
@@ -105,7 +109,6 @@
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>
-        <version>RELEASE</version>
     </dependency>
 
 		
@@ -230,6 +233,37 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		
+		<!--短信接口相关依赖  -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.15</version>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+		
+		
 	</dependencies>
 		<dependencyManagement>
 			<dependencies>

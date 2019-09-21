@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.stereotype.Component;
 
-@Component
-@EnableJms
+/*@Component
+@EnableJms*/
 public class activeMQBeanConfig {
 
-	/*设置队列名称name*/
-   /* private static final String QUEUE_NAME = "active.queue";
-      */
+/*	设置队列名称name
+    private static final String QUEUE_NAME = "active.queue";
+      
     private static final String TOPIC_NAME = "active.topic";
 
 	@Value("${myqueue}")
@@ -32,6 +32,6 @@ public class activeMQBeanConfig {
     @Bean
     public Topic topic(){
         return new ActiveMQTopic(TOPIC_NAME);
-    }
+    }*/
 }
 

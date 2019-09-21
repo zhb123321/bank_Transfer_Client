@@ -9,6 +9,8 @@ public class Dd {
 	private String type;
 	//留言
 	private String desc;
+	private String message;
+
 	public String getInaccount() {
 		return inaccount;
 	}
@@ -27,5 +29,12 @@ public class Dd {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	
+
 }

@@ -8,41 +8,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-  <title>layui</title>
+  <title>跨境审核结算</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="/css/layui.css"  media="all">
-</style>
 </head>
 <body>  
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-  <legend>物资列表</legend>
+  <legend>跨境审核结算</legend>
 </fieldset>
  	
  	<div class="layui-form-item">
  	
 	<label class="layui-form-label">&emsp;</label>
-	<!-- 物资名称搜索框 -->
-	<div class="layui-input-inline">
-	<input type="text" name="keyWord" id="keyWord" placeholder="请输入物资名称" autocomplete="off" class="layui-input">
-	</div>
 	
 	<form  class="layui-form" >
-	<!-- 厂商搜索框 -->
 	<div class="layui-input-inline">
-	<select name="keyType" id="key_type" lay-filter="relationship" >
-       <option value="">请选择关联厂商</option>
-       <option value="${list.fname}"></option>
+	<select  lay-filter="relationship" id="status">
+       <option>---选择账单状态---</option>
+       <option value="0">系统审核</option>
+       <option value="2">审核中</option>
+       <option value="3">转账成功</option>
+       <option value="4">转账失败</option>
      </select>
 	</div>
-	<!-- 价格间隔搜索框 -->
-	<div class="layui-input-inline">
-	<input type="text" name="keyNum" id="keyNum" placeholder="价格（如100-900）" autocomplete="off" class="layui-input">
-	</div>
+	
 	</form>
 	
-	<button class="layui-btn" data-type="reload" >查询物资</button>
+	<button class="layui-btn" data-type="reload" >查询</button>
 	</div>
 	
 <table class="layui-hide" id="test" lay-filter="test"></table>
@@ -74,7 +68,7 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
   
   table.render({
     elem: '#test'
-    ,url:'/material/list'
+    ,url:'/TransferAudit/CrossborderAudit'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
    	,limit:'5	'
@@ -95,25 +89,47 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
    	}
     ,cols: [[
       {type: 'checkbox', fixed: 'center'}
-      ,{field:'standard', title:'物资规格编号', minwidth:80, unresize: true, sort: true}
-      ,{field:'mname', title:'物资名称', minwidth:120}
-      ,{field:'num', title:'物资数量', minwidth:150}
-      ,{field:'price', title:'物资单价', minwidth:150}
-      ,{field:'fname', title:'生产厂商', minwidth:100}
+      ,{field:'cid', title:'交易单号', minwidth:80, unresize: true, sort: true}
+      ,{field:'userid', title:'账户编号', minwidth:120}
+      ,{field:'username', title:'汇款人名称', minwidth:120}
+      ,{field:'useraddr', title:'汇款人地址', minwidth:150}
+      ,{field:'userphone', title:'联系电话', minwidth:150}
+      ,{field:'inaccount', title:'扣款账户', minwidth:150}
+      ,{field:'reusernumber', title:'收款人账户', minwidth:100}
+      ,{field:'reusername', title:'收款人名称', minwidth:100}
+      ,{field:'fxrate', title:'汇率', minwidth:100}
+      ,{field:'moneynumber', title:'汇款金额', minwidth:100}
+      ,{field:'Datetime', title:'交易日期', minwidth:100}
+      ,{field:'status', title:'交易状态', minwidth:100}
+      ,{field:'Datetime', title:'交易日期', minwidth:100}
+      ,{field:'message', title:'附言', minwidth:100}
       ,{title:'操作', toolbar: '#barDemo', minwidth:200}
-    ]]
+    ]],
+    done: function (res, curr, count) {
+        //如果是异步请求数据方式，res即为你接口返回的信息。
+        //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+        $("[data-field='status']").children().each(function () {
+            if ($(this).text() == '2') {
+                $(this).text('审核中');
+            } else if ($(this).text() == '3') {
+                $(this).text('转账成功');
+            }else if ($(this).text() == '4') {
+            	$(this).text('转账失败');
+			}else if ($(this).text() == '0') {
+                $(this).text('系统审核');
+            }
+        });
+    }
     ,page:true
   });
   
 //搜索框的参数获取
   var $ = layui.$, active = {
   reload:function () {
-      var keyNum=$("#keyNum").val();
-      var keyWord=$("#keyWord").val();
-      var keyType = $("#key_type option:selected").val();
+      var status = $("#status option:selected").val();
       table.reload('contenttable',{
           method:'get',
-         where:{keyWord:keyWord,keyNum:keyNum,keyType:keyType}
+         where:{status:status}
       });
     }
   };
@@ -200,9 +216,9 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
 	                shadeClose: true,
 	                maxmin: true,
 	                offset: '15px',
-	                content: '${pageContext.request.contextPath}/material/edit?mid='+data.mid,//设置你要弹出的jsp页面 
+	                content: '${pageContext.request.contextPath}/TransferAudit/queryByCid?cid='+data.cid,//设置你要弹出的jsp页面 
 	             });
-	             layer.msg('ID：'+ data.mid + ' 的查看操作');
+	             layer.msg('ID：'+ data.cid + ' 的查看操作');
 	    } 
   });
 });

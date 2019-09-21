@@ -17,7 +17,6 @@
 <script src="/js/jquery-1.8.3.js"></script>
 </head>
 
-
 <body class="layui-layout-body">
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header layui-bg-blue" id="sss" name="sss">
@@ -37,7 +36,7 @@
 						</dd>
 						<dd>
 							<a href="javascript:;" data-id="3" data-title="跨境转账"
-								data-url="bank/crossBorder.jsp" class="site-demo-active"
+								data-url="/showCrossBorder" class="site-demo-active"
 								data-type="tabAdd">跨境转账</a>
 						</dd>
 					</dl></li>

@@ -20,5 +20,11 @@ public class AccountServiceImpl implements AccountService {
 		return account;
 	}
 
+	@Override
+	public boolean updataAccount(Long amountlimit,Long cardnumber) {
+		int a = dao.updataAccount(amountlimit,cardnumber);
+		return a>0;
+	}
+
 
 }

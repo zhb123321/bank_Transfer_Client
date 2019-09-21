@@ -8,12 +8,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-  <title>layui</title>
+  <title>审核订单</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="/css/layui.css"  media="all">
-</style>
 </head>
 <body>  
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">

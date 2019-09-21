@@ -172,4 +172,17 @@ public class Account {
     public void setMoney(Long money) {
         this.money = money;
     }
+
+	@Override
+	public String toString() {
+		return "Account [userid=" + userid + ", realname=" + realname + ", cardnumber=" + cardnumber + ", idcard="
+				+ idcard + ", apassword=" + apassword + ", bpassword=" + bpassword + ", opendate=" + opendate
+				+ ", iopendate=" + iopendate + ", openplace=" + openplace + ", accountype=" + accountype
+				+ ", accountsubject=" + accountsubject + ", phone=" + phone + ", house=" + house + ", amountlimit="
+				+ amountlimit + ", deletetype=" + deletetype + ", uptime=" + uptime + ", money=" + money + "]";
+	}
+    
+    
+    
+    
 }
