@@ -23,38 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <hr class="layui-bg-orange">
 
-<div>本次转账信息</div>
-<table class="layui-table">
-    <colgroup>
-        <col width="150">
-        <col width="150">
-        <col>
-    </colgroup>
-    <thead>
-    <tr>
-        <th>付款账户</th>
-        <th>收款账户</th>
-        <th>收款账户名称</th>
-        <th>币种</th>
-        <th>收款账户开户行</th>
-        <th>交易金额</th>
-        <th>大写金额</th>
-        <th>手续费用</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>************</td>
-        <td>************</td>
-        <td>张三</td>
-        <td>人名币</td>
-        <td>知领银行</td>
-        <td>9999</td>
-        <td>九千九百九十九</td>
-        <td>99999</td>
-    </tr>
-    </tbody>
-</table>
+
 <button class="layui-btn" lay-submit lay-filter="formDemo" style="margin-left: 550px;">打印</button>
 <button class="layui-btn" lay-submit lay-filter="formDemo">返回</button>
 </body>
