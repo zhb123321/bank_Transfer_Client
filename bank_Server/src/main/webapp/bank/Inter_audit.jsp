@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-  <title>layui</title>
+  <title></title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,7 +49,7 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
   
   table.render({
     elem: '#test'
-    ,url:'/material/list'
+    ,url:'/TransferAudit/InterbankAudit'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
    	,limit:'5	'
@@ -69,31 +69,47 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
    		    };
    	}
     ,cols: [[
-      {type: 'checkbox', fixed: 'center'}
-      ,{field:'standard', title:'交易单号', minwidth:80, unresize: true, sort: true}
-      ,{field:'mname', title:'汇款人姓名', minwidth:120}
-      ,{field:'num', title:'汇款人账号', minwidth:150}
-      ,{field:'price', title:'交易类型', minwidth:150}
-      ,{field:'fname', title:'交易金额', minwidth:100}
-      ,{field:'fname', title:'交易币种', minwidth:100}
-      ,{field:'fname', title:'收款人姓名', minwidth:100}
-      ,{field:'fname', title:'收款人账号', minwidth:100}
-      ,{field:'fname', title:'收款人银行', minwidth:100}
-      ,{field:'fname', title:'交易时间', minwidth:100}
-      ,{title:'操作', toolbar: '#barDemo', minwidth:200}
-    ]]
+        {type: 'checkbox', fixed: 'center'}
+        ,{field:'iid', title:'交易单号', minwidth:80, unresize: true, sort: true}
+        ,{field:'userid', title:'账户编号', minwidth:120}
+        ,{field:'realname', title:'汇款姓名', minwidth:120}
+        ,{field:'inaccount', title:'汇款账号', minwidth:150}
+        ,{field:'money', title:'交易金额', minwidth:100}
+        ,{field:'status', title:'交易状态', minwidth:100}
+        ,{field:'transtype', title:'交易类型', minwidth:100}
+        ,{field:'datatime', title:'交易时间', minwidth:100}
+        ,{field:'bankname', title:'收款银行', minwidth:100}
+        ,{field:'username', title:'收款姓名', minwidth:100}
+        ,{field:'outaccount', title:'收款账号', minwidth:100}
+        ,{field:'fee', title:'手续费', minwidth:100}
+        ,{field:'mode', title:'执行方式', minwidth:100}
+        ,{field:'uptime', title:'操作时间', minwidth:100}
+        ,{title:'操作', toolbar: '#barDemo', minwidth:200}
+      ]],
+    done: function (res, curr, count) {
+        //如果是异步请求数据方式，res即为你接口返回的信息。
+        //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+        $("[data-field='status']").children().each(function () {
+            if ($(this).text() == '2') {
+                $(this).text('审核中');
+            } else if ($(this).text() == '3') {
+                $(this).text('转账成功');
+            }else if ($(this).text() == '4') {
+            	$(this).text('转账失败');
+			}else if ($(this).text() == '0') {
+                $(this).text('系统审核');
+            }
+        });
+    }
     ,page:true
   });
   
 //搜索框的参数获取
   var $ = layui.$, active = {
   reload:function () {
-      var keyNum=$("#keyNum").val();
-      var keyWord=$("#keyWord").val();
-      var keyType = $("#key_type option:selected").val();
       table.reload('contenttable',{
           method:'get',
-         where:{keyWord:keyWord,keyNum:keyNum,keyType:keyType}
+          where:{status:status}
       });
     }
   };
@@ -175,14 +191,14 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
 	   if(layEvent=== 'edit'){
 	             layer.open({
 	                type: 2,
-	                title: '编辑员工信息', 
+	                title: '审核账单信息', 
 	                area: ['70%', '70%'],
 	                shadeClose: true,
 	                maxmin: true,
 	                offset: '15px',
-	                content: '${pageContext.request.contextPath}/material/edit?mid='+data.mid,//设置你要弹出的jsp页面 
+	                content: '${pageContext.request.contextPath}/TransferAudit/queryByIid?iid='+data.iid,//设置你要弹出的jsp页面 
 	             });
-	             layer.msg('ID：'+ data.mid + ' 的查看操作');
+	             layer.msg('ID：'+ data.iid + ' 的审核');
 	    } 
   });
 });
