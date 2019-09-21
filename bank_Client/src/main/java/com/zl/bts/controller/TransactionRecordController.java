@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zl.bts.pojo.CrossborderTransfer;
+import com.zl.bts.pojo.InerbankTransfer;
+import com.zl.bts.pojo.InterbankTransfer;
 import com.zl.bts.pojo.Layui;
 import com.zl.bts.pojo.TransactionRecord;
 import com.zl.bts.service.impl.TransactionRecordServiceImpl;
@@ -47,13 +50,55 @@ public class TransactionRecordController {
 	//查询所有转账记录
 		@RequestMapping("queryAllRecord")
 		@ResponseBody
-		public Layui queryAllRecord(Integer page,Integer limit) {
+		public Layui queryAllRecord(Integer page,Integer limit,Integer keyType,String keyNum,String keyWord) {
 			Map<String,Object> map = new HashMap<String,Object>();
 			map.put("endPage", page*limit);
 			map.put("beginPage", (page-1)*limit);
+			map.put("transtype", keyType);
+			map.put("datetime", keyNum);
+			map.put("username", keyWord);
+			System.out.println(keyType);
 			List<TransactionRecord> list = traservice.queryAll(map);
-			Integer totalCountAll = traservice.queryTotalCountAll();
+			Integer totalCountAll = traservice.queryTotalCountAll(map);
 			
 			return  Layui.data(totalCountAll, list);
 		} 
+		
+		//新增转账记录
+		/*@RequestMapping("addTransactionRecord")
+		@ResponseBody
+		public void addTransactionRecord() {
+			TransactionRecord  t = new TransactionRecord();
+			
+			//行内转账
+			List<InerbankTransfer> inerList = traservice.queryInerbankTransferByUserId(1);
+			//跨行转账
+			List<InterbankTransfer> interList = traservice.queryInterbankTransferByUserId(2);
+			//跨镜转账
+			List<CrossborderTransfer> CrossborderList = traservice.queryCrossborderTransferByUserId(3);
+			for (CrossborderTransfer crossborderTransfer : CrossborderList) {
+				Integer maxId = traservice.getMaxId();
+				t.setTid(maxId+1);
+				t.setUserid(crossborderTransfer.getUserid());
+				t.setRealname(crossborderTransfer.getUsername());
+				t.setInaccount(inaccount);
+				t.setPhone(phone);
+				t.setInvoice(Invoice);
+				t.setCurrencyid(currencyid);
+				t.setMoney(money);
+				t.setStatus(status);
+				t.setTranstype(transtype);
+				t.setDatetime(datetime);
+				t.setBankname(bankname);
+				t.setUsername(username);
+				t.setOutaccount(outaccount);
+				t.setUptime(uptime);
+				t.setDeletetype(deletetype);
+				
+			}
+			
+			
+			
+			traservice.addTransactionRecord(t);
+		}*/
 }

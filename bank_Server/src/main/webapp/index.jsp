@@ -44,16 +44,13 @@ body .layui-tab .layui-tab-content{height: 1000px;}
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-this"><a href="javascript:;" data-id="1" data-title="客户信息" data-url="bank/kehuxx.jsp" class="site-demo-active" data-type="tabAdd">客户信息</a></li>
-					<li class="layui-nav-item"><a href="javascript:;" data-id="2" data-title="转账记录" data-url="bank/zzjl.jsp" class="site-demo-active" data-type="tabAdd">转账记录</a>
-					</li>
-					<li class="layui-nav-item"><a href="javascript:;" data-id="3" data-title="外行转账处理" data-url="bank/whjl.jsp" class="site-demo-active" data-type="tabAdd">外行转账处理</a>
-					</li>
+        <li class="layui-nav-item layui-this"><a href="javascript:;" data-id="1" data-title="客户信息" data-url="bank/clientInfo.jsp" class="site-demo-active" data-type="tabAdd">客户信息</a></li>
+
 					<li class="layui-nav-item"><a href="javascript:;">结算账单</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-id="4" data-title="自动结算的账单" data-url="bank/kehuxx.jsp" class="site-demo-active" data-type="tabAdd">自动结算的账单</a></dd>
-							<dd><a href="javascript:;" data-id="5" data-title="人工结算的账单" data-url="bank/kehuxx.jsp" class="site-demo-active" data-type="tabAdd">人工结算的账单</a></dd>
-							<dd><a href="javascript:;" data-id="6" data-title="出现异常的账单" data-url="bank/kehuxx.jsp" class="site-demo-active" data-type="tabAdd">出现异常的账单</a></dd>
+							<dd><a href="javascript:;" data-id="4" data-title="行内审核结算" data-url="bank/iner_audit.jsp" class="site-demo-active" data-type="tabAdd">行内审核结算</a></dd>
+							<dd><a href="javascript:;" data-id="5" data-title="跨行审核结算" data-url="bank/Inter_audit.jsp" class="site-demo-active" data-type="tabAdd">跨行审核结算</a></dd>
+							<dd><a href="javascript:;" data-id="6" data-title="跨境审核结算" data-url="bank/cross_audit.jsp" class="site-demo-active" data-type="tabAdd">跨境审核结算</a></dd>
 						</dl>
 					</li>
             </ul>

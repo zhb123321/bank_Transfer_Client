@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-  <title>审核订单</title>
+  <title>行内审核结算</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,32 +16,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>  
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-  <legend>转账记录</legend>
+  <legend>行内审核结算</legend>
 </fieldset>
  	
  	<div class="layui-form-item">
  	
 	<label class="layui-form-label">&emsp;</label>
-	<!-- 物资名称搜索框 -->
-	<div class="layui-input-inline">
-	<input type="text" name="keyWord" id="keyWord" placeholder="请输入交易类型" autocomplete="off" class="layui-input">
-	</div>
 	
 	<form  class="layui-form" >
-	<!-- 厂商搜索框 -->
 	<div class="layui-input-inline">
-	<select name="keyType" id="key_type" lay-filter="relationship" >
-       <option value="">请选择收款人银行</option>
-       <option value="${list.fname}"></option>
+	<select  lay-filter="relationship" id="status">
+       <option value="-1">-选择账单状态-</option>
+       <option value="0">系统审核</option>
+       <option value="2">审核中</option>
+       <option value="3">转账成功</option>
+       <option value="4">转账失败</option>
      </select>
 	</div>
-	<!-- 价格间隔搜索框 -->
-	<div class="layui-input-inline">
-	<input type="text" name="keyNum" id="keyNum" placeholder="交易时间" autocomplete="off" class="layui-input">
-	</div>
+	
 	</form>
 	
-	<button class="layui-btn" data-type="reload" >查询物资</button>
+	<button class="layui-btn" data-type="reload" >查询</button>
 	</div>
 	
 <table class="layui-hide" id="test" lay-filter="test"></table>
@@ -73,7 +68,7 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
   
   table.render({
     elem: '#test'
-    ,url:'/material/list'
+    ,url:'/TransferAudit/InerbankAudit'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
    	,limit:'5	'
@@ -94,30 +89,46 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
    	}
     ,cols: [[
       {type: 'checkbox', fixed: 'center'}
-      ,{field:'standard', title:'交易单号', minwidth:80, unresize: true, sort: true}
-      ,{field:'mname', title:'汇款人姓名', minwidth:120}
-      ,{field:'num', title:'汇款人账号', minwidth:150}
-      ,{field:'price', title:'交易类型', minwidth:150}
-      ,{field:'fname', title:'交易金额', minwidth:100}
-      ,{field:'fname', title:'交易币种', minwidth:100}
-      ,{field:'fname', title:'收款人姓名', minwidth:100}
-      ,{field:'fname', title:'收款人账号', minwidth:100}
-      ,{field:'fname', title:'收款人银行', minwidth:100}
-      ,{field:'fname', title:'交易时间', minwidth:100}
+      ,{field:'nid', title:'交易单号', minwidth:80, unresize: true, sort: true}
+      ,{field:'userid', title:'账户编号', minwidth:120}
+      ,{field:'inaccount', title:'转出账户', minwidth:150}
+      ,{field:'outaccount', title:'转入账户', minwidth:150}
+      ,{field:'username', title:'收款人姓名', minwidth:150}
+      ,{field:'money', title:'交易金额', minwidth:100}
+      ,{field:'fee', title:'服务费', minwidth:100}
+      ,{field:'datatime', title:'交易日期', minwidth:100}
+      ,{field:'status', title:'交易状态', minwidth:100}
+      ,{field:'transfertype', title:'转账类型', minwidth:100}
+      ,{field:'balance', title:'账户余额', minwidth:100}
+      ,{field:'mode', title:'执行方式', minwidth:100}
       ,{title:'操作', toolbar: '#barDemo', minwidth:200}
-    ]]
+    ]],  
+    done: function (res, curr, count) {
+        //如果是异步请求数据方式，res即为你接口返回的信息。
+        //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+        $("[data-field='status']").children().each(function () {
+            if ($(this).text() == '2') {
+                $(this).text('审核中');
+            } else if ($(this).text() == '3') {
+                $(this).text('转账成功');
+            }else if ($(this).text() == '4') {
+            	$(this).text('转账失败');
+			}else if ($(this).text() == '0') {
+                $(this).text('系统审核');
+            }
+        });
+    }
+
     ,page:true
   });
   
 //搜索框的参数获取
   var $ = layui.$, active = {
   reload:function () {
-      var keyNum=$("#keyNum").val();
-      var keyWord=$("#keyWord").val();
-      var keyType = $("#key_type option:selected").val();
+      var status = $("#status option:selected").val();
       table.reload('contenttable',{
           method:'get',
-         where:{keyWord:keyWord,keyNum:keyNum,keyType:keyType}
+         where:{status:status}
       });
     }
   };
@@ -204,9 +215,9 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
 	                shadeClose: true,
 	                maxmin: true,
 	                offset: '15px',
-	                content: '${pageContext.request.contextPath}/material/edit?mid='+data.mid,//设置你要弹出的jsp页面 
+	                content: '${pageContext.request.contextPath}/TransferAudit/queryByNid?nid='+data.nid,//设置你要弹出的jsp页面 
 	             });
-	             layer.msg('ID：'+ data.mid + ' 的查看操作');
+	             layer.msg('ID：'+ data.nid + ' 的查看操作');
 	    } 
   });
 });

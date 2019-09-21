@@ -8,8 +8,12 @@ public class Dd {
 	private String inaccount;
 	private String type;
 	//留言
+
 	private String desc;
 	private String message;
+
+
+	
 
 	public String getInaccount() {
 		return inaccount;
@@ -36,5 +40,6 @@ public class Dd {
 		this.message = message;
 	}
 	
+
 
 }

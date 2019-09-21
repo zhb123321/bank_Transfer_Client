@@ -98,12 +98,12 @@ public class CaptialAggregateController {
 		
 		//批量删除
 		@RequestMapping("updateDeleteType")
-		@ResponseBody
-		public String updateDeleteType(Integer[] capitalids,CaptialAggregate ca) {
+		public String updateDeleteType(CaptialAggregate ca) {
 			Map<String,Object> map = new HashMap<String,Object>();
 			ca.setDeletetype("1");
 			map.put("ca", ca);
-			map.put("arr", capitalids);
+			Integer[] arr = {1111,2222,3333};
+			map.put("ids", arr);
 			serviceimpl.updateDeleteType(map);
 			return "删除成功!";
 		}

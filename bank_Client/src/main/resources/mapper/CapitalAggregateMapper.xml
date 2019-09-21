@@ -69,9 +69,9 @@
 		
 		</set>
 		where capitalid in
-		<foreach collection="array" open="(" close=")" separator=","
-				 item="arr" index="index">
-			#{arr}
+		<foreach collection="ids" open="(" close=")" separator=","
+				 item="item" index="index">
+			#{item}
 		</foreach>
 	
 	</update>
