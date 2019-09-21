@@ -13,7 +13,7 @@ import java.nio.charset.Charset;
 public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
 	private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 	static {
-        ParserConfig.getGlobalInstance().addAccept("com.zl.bts.pojo.");
+        /*ParserConfig.getGlobalInstance().addAccept("com.zl.bts.pojo.");*/
     }
 
     private Class<T> clazz;

@@ -28,8 +28,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/*@Configuration
-@EnableCaching*/
+@Configuration
+@EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 
   /**
@@ -114,7 +114,7 @@ public class RedisConfig extends CachingConfigurerSupport {
       反解析就会报com.alibaba.fastjson.JSONException: autoType is not support的异常
       可参考 https://blog.csdn.net/u012240455/article/details/80538540
        */
-      ParserConfig.getGlobalInstance().addAccept("com.zl.bts.pojo.");
+    /*  ParserConfig.getGlobalInstance().addAccept("com.zl.bts.pojo.");*/
       return cacheManager;
   }
 

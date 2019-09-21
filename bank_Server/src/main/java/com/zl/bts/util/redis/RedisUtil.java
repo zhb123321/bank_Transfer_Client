@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-/*@Component*/
+@Component
 
 public class RedisUtil {
 

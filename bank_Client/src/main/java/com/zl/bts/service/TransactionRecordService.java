@@ -4,9 +4,11 @@ package com.zl.bts.service;
 import java.util.List;
 import java.util.Map;
 
+import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
 
 public interface TransactionRecordService {
+	public void addInerbankTransfer(InerbankTransfer t);
 	public void addTransactionRecord(TransactionRecord t);
 	//查询历史转账记录
 	public List<TransactionRecord> queryFinshed(Map<String,Object> map);
