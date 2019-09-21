@@ -9,7 +9,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -99,8 +98,7 @@ public class CaptialAggregateController {
 		
 		//批量删除
 		@RequestMapping("updateDeleteType")
-		
-		public String updateDeleteType(@RequestBody String mid,CaptialAggregate ca) {
+		public String updateDeleteType(CaptialAggregate ca) {
 			Map<String,Object> map = new HashMap<String,Object>();
 			ca.setDeletetype("1");
 			map.put("ca", ca);

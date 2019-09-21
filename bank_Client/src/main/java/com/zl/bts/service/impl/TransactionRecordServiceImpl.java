@@ -14,7 +14,7 @@ import com.zl.bts.pojo.InterbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
 import com.zl.bts.service.TransactionRecordService;
 
-@Service
+@Service 
 public class TransactionRecordServiceImpl implements TransactionRecordService{
 	@Autowired
 	private TransactionRecordDao trdao;

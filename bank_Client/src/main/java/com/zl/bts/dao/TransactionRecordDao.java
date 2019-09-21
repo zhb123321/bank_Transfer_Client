@@ -10,7 +10,7 @@ import com.zl.bts.pojo.CrossborderTransfer;
 import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.InterbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
-@Mapper
+@Mapper  
 public interface TransactionRecordDao {
 	//获取id最大值
 	public Integer getMaxId();
