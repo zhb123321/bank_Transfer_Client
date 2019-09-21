@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-input-inline">
 				<select name="keyType" id="key_type" lay-filter="relationship" >
 			       <option value="">请选择转账类型</option>
-			       <option value="">行内转账</option>
-			       <option value="">跨行转账</option>
-			       <option value="">跨境转账</option>
+			       <option value="0">行内转账</option>
+			       <option value="1">跨行转账</option>
+			       <option value="2">跨境转账</option>
 			     </select>
 				</div>
 				<!-- 价格间隔搜索框 -->
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    ,url:'/trc/queryAllRecord'
 			    ,toolbar: '#toolbarDemo'
 			    ,title: '用户数据表'
-			   	,limit:'5	'
+			   	,limit:'5'
 			    ,limits:[5,10,20,30]
 			    ,height:600
 			    ,id:'contenttable'
@@ -98,7 +98,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				      ,{field:'tid', title:'交易单号', minwidth:80, unresize: true, sort: true}
 				      ,{field:'realname', title:'汇款人姓名', minwidth:120}
 				      ,{field:'inaccount', title:'汇款人账号', minwidth:150}
-				      ,{field:'transtype', title:'交易类型', minwidth:150}
+				      ,{field:'transtype', title:'交易类型', minwidth:150,templet:function (d) {
+			                if (d.transtype =='0'){
+			                    return '行内转账'
+			                }else if(d.transtype =='1'){
+			                    return '跨行转账'
+			                }else if(d.transtype =='2'){
+			                    return '跨镜转账'
+			                }
+			            }}
 				      ,{field:'money', title:'交易金额', minwidth:100}
 				      ,{field:'currencyid', title:'交易币种', minwidth:100}
 				      ,{field:'username', title:'收款人姓名', minwidth:100}
@@ -213,6 +221,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  });
 			});
 			</script>
-			
+			<script type="text/html" id="titleTpl">
+			  if({{d.transtype}}==0){
+					行内转账
+				}else if({{d.transtype}}==1){
+				跨行转账
+				}else if({{d.transtype}}==2){
+				跨镜转账
+				}
+			</script> 
 			</body>
 			</html>

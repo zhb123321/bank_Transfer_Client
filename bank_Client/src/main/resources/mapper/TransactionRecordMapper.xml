@@ -8,12 +8,18 @@
 		status,transtype,datetime,bankname,username,outaccount,uptime
 		,deletetype
 	</sql>
-	
+	<!-- 新增转账记录 -->
 	<insert id="addTransactionRecord" parameterType="TransactionRecord">
-		insert into Transaction_Record(tid,inaccount,money,bankname,username,outaccount) values (
-			#{tid},#{inaccount},#{money},#{bankname},#{username},#{outaccount}
+		insert into Transaction_Record  values (
+			#{tid},#{userid},#{realname},#{inaccount},#{phone},#{Invoice},#{currencyid},#{money},#{status},#{transtype},
+			#{datetime},#{bankname},#{username},#{outaccount},#{uptime},#{deletetype}
 		)
 	</insert>
+	
+	<!-- 获取id最大值 -->
+	<select id="getMaxId" resultType="int">
+		select MAX(tid) from TRANSACTION_RECORD
+	</select>
 	
 	<!-- 查询历史转账记录 -->
 	<select id="queryFinshed" resultType="TransactionRecord" parameterType="map">
@@ -52,13 +58,47 @@
 	
 	SELECT <include refid="transactionRecordColumn"/>
 		FROM (SELECT <include refid="transactionRecordColumn"/>,ROWNUM r FROM  (SELECT <include refid="transactionRecordColumn"/> FROM TRANSACTION_RECORD 
-		   ORDER BY tid ) WHERE ROWNUM &lt;= #{endPage})e
-		WHERE e.r&gt; #{beginPage}
+		 	<where>
+			
+			<if test="transtype!=null">
+				and transtype = #{transtype}
+			</if>
+			<if test="username!=null">
+				and username = #{username}
+			</if>
+			<if test="datetime!=null">
+				and datetime = #{datetime}
+			</if>
+	</where>
+		   ORDER BY tid ) WHERE ROWNUM &lt;= #{endPage})e where e.r&gt; #{beginPage}
 	
 	</select>
-	<!-- 查询未完成转账记录总数据量 -->
-	<select id="queryTotalCountAll" resultType="int">
+	<!-- 查询所有转账记录总数据量 -->
+	<select id="queryTotalCountAll" resultType="int" parameterType="map">
 		SELECT COUNT(1) FROM Transaction_Record 
+		<where>
+			<if test="transtype!=null">
+				and transtype = #{transtype}
+			</if>
+			<if test="username!=null">
+				and username = #{username}
+			</if>
+			<if test="datetime!=null">
+				and datetime = #{datetime}
+			</if>
+	</where>
+	</select>
+	<!-- 查询行内转账 -->
+	<select id="queryInerbankTransferByUserId" parameterType="int" resultType="InerbankTransfer">
+		select * from INERBANK_TRANSFER where userid = #{userid}
+	</select>
+	<!-- 查询跨行转账 -->
+	<select id="queryInterbankTransferByUserId" parameterType="int" resultType="InterbankTransfer">
+		select * from INTERBANK_TRANSFER where userid = #{userid}
+	</select>
+	<!-- 查询跨镜转账 -->
+	<select id="queryCrossborderTransferByUserId" parameterType="int" resultType="CrossborderTransfer">
+		select * from CROSSBORDER_TRANSFER where userid = #{userid}
 	
 	</select>
 </mapper>
