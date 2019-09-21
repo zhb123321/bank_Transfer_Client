@@ -18,8 +18,10 @@ public class AccountController {
 	@Autowired
 	private AccountServiceImpl accImpl;
 
+
 	@RequestMapping("/login")
 	public String loginByPhone(Account user, HttpServletRequest request,Model model) {
+
 		System.out.println("进入了控制器");
 		System.out.println(user.getPhone() + user.getBpassword());
 		Account acc = accImpl.login(user);

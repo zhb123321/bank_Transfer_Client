@@ -74,10 +74,12 @@
 			<!-- oracle -->
 			<dependency>
 
+
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>6</version>
         </dependency>
+
 
 		
 			<dependency>

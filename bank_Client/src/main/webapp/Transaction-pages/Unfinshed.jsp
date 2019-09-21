@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    ,url:'/trc/queryFinshedUnRecord'
 			    ,toolbar: '#toolbarDemo'
 			    ,title: '用户数据表'
-			   	,limit:'5	'
+			   	,limit:'5'
 			    ,limits:[5,10,20,30]
 			    ,height:600
 			    ,id:'contenttable'
@@ -213,9 +213,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  });
 			});
 			//
-			laydate.render({
+			/* laydate.render({
 			    elem: 'times'
-			  });
+			  }); */
 			</script>
 			
 			</body>

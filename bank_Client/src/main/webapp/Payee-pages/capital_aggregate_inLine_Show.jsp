@@ -148,6 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							for (var i = 0; i < data.length; i++) {
 								ids.push(data[i].mid);
 							}
+							console.log(ids);
 							layer.confirm('真的删除选中的么？', function(index) {
 								$.ajax({
 									url: "/cac/updateDeleteType",

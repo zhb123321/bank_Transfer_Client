@@ -16,108 +16,81 @@
 <link rel="stylesheet" href="/css/layui.css">
 <script src="/js/jquery-1.8.3.js"></script>
 </head>
-
-<body class="layui-layout-body">
-	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header layui-bg-blue" id="sss" name="sss">
-			<div class="layui-logo" style="color: white;">银行客户端管理系统</div>
-			<ul class="layui-nav layui-layout-left ">
-				<li class="layui-nav-item"><a class="" href="javascript:;">单笔转账</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="1" data-title="行内转账"
-								data-url="/acc/inBank" class="site-demo-active"
-								data-type="tabAdd">行内转账</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="2" data-title="跨行转账"
-								data-url="/acc/interBank" class="site-demo-active"
-								data-type="tabAdd">跨行转账</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="3" data-title="跨境转账"
-								data-url="/showCrossBorder" class="site-demo-active"
-								data-type="tabAdd">跨境转账</a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">账户限额</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="4" data-title="在线支付管理"
-								data-url="Transaction-pages/zhxe.jsp" class="site-demo-active"
-								data-type="tabAdd">在线支付管理</a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">收款</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="5" data-title="主动收款"
-								data-url="bank/activeCheck.jsp" class="site-demo-active"
-								data-type="tabAdd">主动收款</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="6" data-title="收款人管理"
-								data-url="Payee-pages/Cashier.jsp" class="site-demo-active"
-								data-type="tabAdd">收款人管理</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="15" data-title="添加收款人"
-								data-url="bank/active.jsp" class="site-demo-active"
-								data-type="tabAdd">添加收款人</a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">行内资金归集</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="7" data-title="行内签约"
-								data-url="Payee-pages/capital_aggregate_inLine_Signing.jsp"
-								class="site-demo-active" data-type="tabAdd">签约 </a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="8" data-title="查看行内签约"
-								data-url="Payee-pages/capital_aggregate_inLine_Show.jsp"
-								class="site-demo-active" data-type="tabAdd">查看签约 </a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">跨行资金归集</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="9" data-title="跨行签约"
-								data-url="Payee-pages/capital_aggregate_outLine_Signing.jsp"
-								class="site-demo-active" data-type="tabAdd">签约 </a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="10" data-title="查看跨行签约"
-								data-url="Payee-pages/capital_aggregate_outLine_Show.jsp"
-								class="site-demo-active" data-type="tabAdd">查看签约 </a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">批量转账</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="11" data-title="自选批量转账"
-								data-url="bank/plzz.jsp" class="site-demo-active"
-								data-type="tabAdd">自选批量转账</a>
-						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">账单明细</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;" data-id="12" data-title="我的交易记录"
-								data-url="Transaction-pages/transactionnote.jsp"
-								class="site-demo-active" data-type="tabAdd">我的交易记录</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="13" data-title="历史转账记录"
-								data-url="Transaction-pages/Finshed.jsp"
-								class="site-demo-active" data-type="tabAdd">历史转账记录</a>
-						</dd>
-						<dd>
-							<a href="javascript:;" data-id="14" data-title="未完成转账记录"
-								data-url="Transaction-pages/Unfinshed.jsp"
-								class="site-demo-active" data-type="tabAdd">未完成转账记录</a>
-						</dd>
-					</dl></li>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header layui-bg-blue" id="sss" name="sss">
+				<div class="layui-logo" style="color: white;">银行客户端管理系统</div>
+				<ul class="layui-nav layui-layout-left ">
+					<li class="layui-nav-item">
+						<a class="" href="javascript:;">单笔转账</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;" data-id="1" data-title="行内转账" data-url="/acc/inBank" class="site-demo-active" data-type="tabAdd">行内转账</a></dd>
+							<dd><a href="javascript:;" data-id="2" data-title="跨行转账" data-url="/acc/interBank" class="site-demo-active" data-type="tabAdd">跨行转账</a></dd>
+							<dd><a href="javascript:;" data-id="3" data-title="跨境转账" data-url="/showCrossBorder" class="site-demo-active" data-type="tabAdd">跨境转账</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">账户限额</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;" data-id="4" data-title="在线支付管理" data-url="pc/xe" class="site-demo-active" data-type="tabAdd">在线支付管理</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">收款</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;" data-id="5" data-title="主动收款" data-url="bank/active.jsp" class="site-demo-active" data-type="tabAdd">主动收款</a>
+							</dd>
+							<dd><a href="javascript:;" data-id="6" data-title="收款人管理" data-url="Payee-pages/Cashier.jsp" class="site-demo-active" data-type="tabAdd">收款人管理</a>
+							</dd>
+							<dd><a href="javascript:;" data-id="15" data-title="添加收款人" data-url="bank/active.jsp" class="site-demo-active" data-type="tabAdd">添加收款人</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">行内资金归集</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-id="7" data-title="行内签约" data-url="Payee-pages/capital_aggregate_inLine_Signing.jsp" class="site-demo-active" data-type="tabAdd">签约
+											      	 				</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-id="8" data-title="查看行内签约" data-url="Payee-pages/capital_aggregate_inLine_Show.jsp" class="site-demo-active" data-type="tabAdd">查看签约
+											      	 				</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">跨行资金归集</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;" data-id="9" data-title="跨行签约" data-url="Payee-pages/capital_aggregate_outLine_Signing.jsp" class="site-demo-active" data-type="tabAdd">签约
+											      	 				</a>
+							</dd>
+							<dd>
+								<a href="javascript:;" data-id="10" data-title="查看跨行签约" data-url="Payee-pages/capital_aggregate_outLine_Show.jsp" class="site-demo-active" data-type="tabAdd">查看签约
+											      	 				</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">批量转账</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;" data-id="11" data-title="自选批量转账" data-url="pc/pl" class="site-demo-active" data-type="tabAdd">自选批量转账</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">账单明细</a>
+						<dl class="layui-nav-child">
+							<dd><a href="javascript:;" data-id="12" data-title="我的交易记录" data-url="Transaction-pages/transactionnote.jsp" class="site-demo-active" data-type="tabAdd">我的交易记录</a>
+							</dd>
+							<dd><a href="javascript:;" data-id="13" data-title="历史转账记录" data-url="Transaction-pages/Finshed.jsp" class="site-demo-active" data-type="tabAdd">历史转账记录</a>
+							</dd>
+							<dd><a href="javascript:;" data-id="14" data-title="未完成转账记录" data-url="Transaction-pages/Unfinshed.jsp" class="site-demo-active" data-type="tabAdd">未完成转账记录</a>
+							</dd>
+						</dl>
+					</li>
+>>>>>>> branch 'master' of https://github.com/zhb123321/bank_Transfer_Client.git
 
 			</ul>
 

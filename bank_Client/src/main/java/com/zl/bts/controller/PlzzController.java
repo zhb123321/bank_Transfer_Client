@@ -1,6 +1,8 @@
 package com.zl.bts.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,10 +28,30 @@ public class PlzzController {
 	private TransactionRecordService trs;
 	@Autowired
 	private AccountService as;
+	
+	@RequestMapping(value="/pl")
+	public String pl(HttpServletRequest request){
+		Account a= new Account();
+		a.setUserid(Long.valueOf("123"));
+		Long w=as.select(Long.valueOf("123"));
+		request.getSession().setAttribute("w",w);
+		return "bank/plzz";
+	}
+	
+	@RequestMapping(value="/xe")
+	public String xe(HttpServletRequest request){
+		Account a= new Account();
+		a.setUserid(Long.valueOf("123"));
+		Long w=as.select(Long.valueOf("123"));
+		request.getSession().setAttribute("w",w);
+		return "Transaction-pages/zhxe";
+	}
+	
+	
 	//批量转账
 	@RequestMapping(value="/plzz")
     @ResponseBody
-	public String plzz(@RequestBody String data){
+	public String plzz(@RequestBody String data,HttpServletRequest request){
 		JSONObject jsonObject = JSONObject.parseObject(data);
 		System.out.println(jsonObject);
 		Plzz share = JSON.toJavaObject(jsonObject,Plzz.class);
@@ -44,14 +66,14 @@ public class PlzzController {
 			t.setUsername(s.getUsername());
 			t.setUsername(s.getOutaccount());
 			System.out.println("sss");
-			trs.addInerbankTransfer(t);
+			//trs.addInerbankTransfer(t);
 		}
 		return "success";
 	}
 	//转账限额
 	@RequestMapping(value="/zhxe")
 	@ResponseBody
-	public String zhxe(@RequestBody String data){
+	public String zhxe(@RequestBody String data,HttpServletRequest request){
 		JSONObject jsonObject = JSONObject.parseObject(data);
 		Account share = JSON.toJavaObject(jsonObject,Account.class);
 		System.out.println(share);

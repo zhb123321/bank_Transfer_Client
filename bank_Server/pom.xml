@@ -74,11 +74,18 @@
 				</exclusions>
 			</dependency>
 			<!-- oracle -->
-			<dependency>
+
+			<!-- <dependency>
 	            <groupId>com.oracle</groupId>
+<<<<<<< HEAD
 				<artifactId>ojdbc6</artifactId>
 				<version>6</version>
         	</dependency>
+=======
+				<artifactId>ojdbc8</artifactId>
+				<version>12.2.0.1</version>
+        	</dependency> -->
+>>>>>>> branch 'master' of https://github.com/zhb123321/bank_Transfer_Client.git
 
 			<dependency>
 				<groupId>commons-dbcp</groupId>
