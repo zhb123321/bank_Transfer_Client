@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.bts.dao.TransactionRecordDao">
+	
+	<insert id="addTransactionRecord" parameterType="TransactionRecord">
+		insert into Transaction_Record(tid,inaccount,money,bankname,username,outaccount) values (
+			#{tid},#{inaccount},#{money},#{bankname},#{username},#{outaccount}
+		)
+	</insert>
+	
+	<select id="selectTransactionRecord" resultType="TransactionRecord" parameterType="com.zl.bts.util.Page">
+		select * from (select rownum as rn,t.* from Transaction_Record t) where rn between #{start} and #{end}
+	</select>
+	
+</mapper>

@@ -52,6 +52,6 @@
     </tbody>
 </table>
 <button class="layui-btn" lay-submit lay-filter="formDemo" style="margin-left: 550px;">打印</button>
-<button class="layui-btn" lay-submit lay-filter="formDemo">返回</button>
+<button class="layui-btn" lay-submit lay-filter="formDemo" onclick="javascript:window.location.href='${pageContext.request.contextPath}/showCrossBorder'" >返回</button>
 </body>
 </html>

@@ -7,6 +7,8 @@
 		select * from ACCOUNT where phone=#{phone} and bpassword=#{bpassword}		
 	</select>
 	
-	
+	<update id="updataAccount" parameterType="Account" >
+		update ACCOUNT set amountlimit=#{amountlimit} where cardnumber=#{cardnumber}	
+	</update>
 	
 </mapper>
