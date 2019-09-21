@@ -14,7 +14,7 @@ public class TransactionRecord {
 		private String money;//交易金额
 		private Integer status;//交易状态
 		private Integer transtype;//交易类型
-		private String datatime;//交易时间
+		private String datetime;//交易时间
 		private String bankname;//收款银行
 		private String username;//收款姓名
 		private String outaccount;//收款账号
@@ -80,11 +80,11 @@ public class TransactionRecord {
 		public void setTranstype(Integer transtype) {
 			this.transtype = transtype;
 		}
-		public String getDatatime() {
-			return datatime;
+		public String getDatetime() {
+			return datetime;
 		}
-		public void setDatatime(String datatime) {
-			this.datatime = datatime;
+		public void setDatetime(String datetime) {
+			this.datetime = datetime;
 		}
 		public String getBankname() {
 			return bankname;

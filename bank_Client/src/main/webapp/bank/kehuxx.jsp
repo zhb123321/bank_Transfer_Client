@@ -33,7 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-input-inline">
 	<select name="keyType" id="key_type" lay-filter="relationship" >
        <option value="">请选择关联厂商</option>
-       <option value="${list.fname}"></option>
+       <option value="1"></option>
+       <option value="2"></option>
      </select>
 	</div>
 	<!-- 价格间隔搜索框 -->

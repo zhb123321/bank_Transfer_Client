@@ -30,7 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
  
 <script type="text/html" id="barDemo">
-	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	<a class="layui-btn layui-btn-xs" lay-event="edit">通过</a>
+    <a class="layui-btn layui-btn-xs" lay-event="noedit">不通过</a>
 </script>
               
           
@@ -49,12 +50,13 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
   
   table.render({
     elem: '#test'
-    ,url:'/material/list'
+    ,url:'/tc/list'
     ,toolbar: '#toolbarDemo'
     ,title: '用户数据表'
-   	,limit:'5	'
+   	,limit:'5'
     ,limits:[5,10,20,30]
-    ,height:600
+    ,height:400
+    ,page:true
     ,id:'contenttable'
     ,request: {
    	   	    pageName: 'page' //页码的参数名称，默认：page
@@ -70,19 +72,24 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
    	}
     ,cols: [[
       {type: 'checkbox', fixed: 'center'}
-      ,{field:'standard', title:'交易单号', minwidth:80, unresize: true, sort: true}
-      ,{field:'mname', title:'汇款人姓名', minwidth:120}
-      ,{field:'num', title:'汇款人账号', minwidth:150}
-      ,{field:'price', title:'交易类型', minwidth:150}
-      ,{field:'fname', title:'交易金额', minwidth:100}
-      ,{field:'fname', title:'交易币种', minwidth:100}
-      ,{field:'fname', title:'收款人姓名', minwidth:100}
-      ,{field:'fname', title:'收款人账号', minwidth:100}
-      ,{field:'fname', title:'收款人银行', minwidth:100}
-      ,{field:'fname', title:'交易时间', minwidth:100}
+      ,{field:'tid', title:'sss', minwidth:80, unresize: true, sort: true}
+      ,{field:'userid', title:'账户编号', minwidth:120}
+      ,{field:'realname', title:'汇款姓名', minwidth:120}
+      ,{field:'inaccount', title:'汇款账号', minwidth:150}
+      ,{field:'phone', title:'汇款手机号码', minwidth:150}
+      ,{field:'Invoice', title:'交易发票号码', minwidth:100}
+      ,{field:'currencyid', title:'交易币种', minwidth:100}
+      ,{field:'money', title:'交易金额', minwidth:100}
+      ,{field:'status', title:'交易状态', minwidth:100}
+      ,{field:'transtype', title:'交易类型', minwidth:100}
+      ,{field:'datatime', title:'交易时间', minwidth:100}
+      ,{field:'bankname', title:'收款银行', minwidth:100}
+      ,{field:'username', title:'收款姓名', minwidth:100}
+      ,{field:'outaccount', title:'收款账号', minwidth:100}
+      ,{field:'uptime', title:'操作时间', minwidth:100}
+      ,{field:'deletetype', title:'删除状态', minwidth:100}
       ,{title:'操作', toolbar: '#barDemo', minwidth:200}
     ]]
-    ,page:true
   });
   
 //搜索框的参数获取
@@ -169,20 +176,32 @@ layui.use(['table','form', 'layedit', 'laydate', 'jquery'], function(){
 	    ,editList=[]; //存放获取到的那条json数据中的value值（不放key）
 	    $.each(data,function(name,value) {//循环遍历json数据
 	        editList.push(value);//将json数据中的value放入数组中（下面的子窗口显示的时候要用到）
-	    });
-	    
-	    //console.log(obj)
+	    });	    
+	    console.log(data);
 	   if(layEvent=== 'edit'){
-	             layer.open({
+	   				$.ajax({
+				    type:"POST",
+					url : "tc/bj",
+					contentType : "application/json",
+					data : JSON.stringify(data),
+					success : function(date) { 
+						 if(date=="success"){
+						    alert(date);
+						}  
+					}
+				}) 
+	   
+	   
+	            /*  layer.open({
 	                type: 2,
 	                title: '编辑员工信息', 
 	                area: ['70%', '70%'],
 	                shadeClose: true,
 	                maxmin: true,
 	                offset: '15px',
-	                content: '${pageContext.request.contextPath}/material/edit?mid='+data.mid,//设置你要弹出的jsp页面 
+	                content: '/material/edit?mid='+data.mid,//设置你要弹出的jsp页面 
 	             });
-	             layer.msg('ID：'+ data.mid + ' 的查看操作');
+	             layer.msg('ID：'+ data.mid + ' 的查看操作'); */
 	    } 
   });
 });
