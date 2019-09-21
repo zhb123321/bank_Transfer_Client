@@ -15,6 +15,12 @@
 		)
 	</insert>
 	
+	<insert id="addInerbankTransfer" parameterType="InerbankTransfer">
+		insert into inerbank_transfer(nid,inaccount,money,bankname,username,outaccount) values (
+			#{nid},#{inaccount},#{money},#{bankname},#{username},#{outaccount}
+		)
+	</insert>
+	
 	<!-- 查询历史转账记录 -->
 	<select id="queryFinshed" resultType="TransactionRecord" parameterType="map">
 	

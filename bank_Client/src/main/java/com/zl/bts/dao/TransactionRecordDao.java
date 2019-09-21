@@ -6,9 +6,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
 @Mapper
 public interface TransactionRecordDao {
+	public void addInerbankTransfer(InerbankTransfer t);
+	
 	public void addTransactionRecord(TransactionRecord t);
 	
 	//查询转账记录

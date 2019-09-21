@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zl.bts.dao.TransactionRecordDao;
+import com.zl.bts.pojo.InerbankTransfer;
 import com.zl.bts.pojo.TransactionRecord;
 import com.zl.bts.service.TransactionRecordService;
 
@@ -45,5 +46,10 @@ public class TransactionRecordServiceImpl implements TransactionRecordService{
 	public Integer queryTotalCountAll() {
 		return trdao.queryTotalCountAll();
 				
+	}
+
+	@Override
+	public void addInerbankTransfer(InerbankTransfer t) {
+		trdao.addInerbankTransfer(t);		
 	}
 }

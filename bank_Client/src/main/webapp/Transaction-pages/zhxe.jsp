@@ -24,9 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="layui-form-item">
 				<label class="layui-form-label">银行卡号:</label>
 				<div class="layui-input-block" style="width: 220px;">
-					<select name="cardNUMBER" id="card_NUMBER" lay-filter="relationship">
+					<select name="cardnumber" id="card_number" lay-filter="relationship">
             	<option value="">请选择银行卡号</option>
-       				<option value="${list.fname}"></option>
+       				<option value="1">1</option>
+       				<option value="2">2</option>
           </select>余额：元
 				</div>
 			</div>

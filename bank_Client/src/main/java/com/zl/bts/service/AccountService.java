@@ -6,5 +6,5 @@ public interface AccountService {
 	//登入验证
 	public Account login(Account a);
 	//账户限额
-	public boolean updataAccount(Long accountlimit);
+	public boolean updataAccount(Long amountlimit,Long cardnumber);
 }

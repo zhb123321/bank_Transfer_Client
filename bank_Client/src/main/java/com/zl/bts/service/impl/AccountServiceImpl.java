@@ -21,8 +21,8 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public boolean updataAccount(Long accountlimit) {
-		int a = dao.updataAccount(accountlimit);
+	public boolean updataAccount(Long amountlimit,Long cardnumber) {
+		int a = dao.updataAccount(amountlimit,cardnumber);
 		return a>0;
 	}
 

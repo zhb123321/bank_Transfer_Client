@@ -49,7 +49,7 @@ td .layui-form-select {
 			<select name="inaccount" id="in_account" lay-filter="relationship">
 				<option value="">请选择银行卡号</option>
 				<option value="123123123123">123123123123</option>
-			</select>余额：元
+			</select>余额：<label id="ye"></label>元
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -59,7 +59,7 @@ td .layui-form-select {
 	</div>
 
 	<div class="layui-form-item">
-		<label class="layui-form-label">总金额： 元</label>
+		<label class="layui-form-label">总金额:<label id="je"></label>元</label>
 	</div>
 	<div class="layui-form-item layui-form-text">
 		<label class="layui-form-label">附言</label>
@@ -71,7 +71,7 @@ td .layui-form-select {
 	<div class="layui-form-item">
 		<label class="layui-form-label">短信通知</label>
 		<div class="layui-input-block">
-			<input type="checkbox" name="message" lay-skin="message">
+			<input type="checkbox" name="message" lay-skin="switch">
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -81,9 +81,7 @@ td .layui-form-select {
 	</div>
 
 	<script type="text/html" id="toolbarDemo">
-		<div class="layui-btn-container">
-			<button class="layui-btn layui-btn-sm" lay-event="deleteBySelect">删除选中的行数</button>
-			<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+		<div class="layui-btn-container">			
 			<button class="layui-btn layui-btn-sm" lay-event="addCheckData">增加一行数据</button>
             <button class="layui-btn layui-btn-sm" lay-event="addData">导入excle数据</button>
 		</div>
@@ -93,6 +91,7 @@ td .layui-form-select {
 	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
 	<script type="text/javascript">
+		
 		window.viewObj = {
 			tbData : [ {
 				tempId : new Date().valueOf(),
@@ -198,7 +197,6 @@ td .layui-form-select {
 						}
 					} ]
 				],
-				page : true,
 				done : function(res, curr, count) {
 					console.log(res.data);
 					viewObj.tbData = res.data;
@@ -252,9 +250,18 @@ td .layui-form-select {
 				console.log(elem);
 				$(elem).prev("a[lay-event='type']").trigger("click");
 			});
-	
-	
-			//头工具栏事件
+			
+			form.on('select(relationship)', function(data) {
+				var elem = data.elem; //得到select原始DOM对象
+				console.log(elem);
+				console.log(data);
+				$("#ye").html(data.value);
+				
+				
+			});
+			
+
+			 //头工具栏事件
 			table.on('toolbar(test)', function(obj) {
 				var checkStatus = table.checkStatus(obj.config.id);
 				switch (obj.event) {
@@ -286,7 +293,19 @@ td .layui-form-select {
 					})
 					break;
 				}				
+			}); 
+			
+			table.on('edit(test)',function(obj) {
+				var tableBak = table.cache["contenttable"];
+				var s=0;
+                for (var i=0;i<tableBak.length;i++)
+				{
+    				console.log(tableBak[i].money);
+    				s=s+parseInt(tableBak[i].money);
+				}
+                $("#je").html(s);    
 			});
+			
 	
 			form.on('submit(formDemo)', function(data) {
 				var tableBak = table.cache["contenttable"];
