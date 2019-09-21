@@ -9,4 +9,5 @@ public class Dd {
 	private String type;
 	//留言
 	private String desc;
+	private String message;
 }

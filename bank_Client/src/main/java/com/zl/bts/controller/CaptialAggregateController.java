@@ -21,8 +21,7 @@ public class CaptialAggregateController {
 	private  CapitalAggregateServiceImpl serviceimpl;
 	@RequestMapping("addCapitalAggregate")
 	public void addCapitalAggregate(CaptialAggregate ca) {
-		
-		
+
 		BigDecimal maxId = serviceimpl.getMaxId();
 		if(null!=maxId) {
 			ca.setCapitalid(maxId);

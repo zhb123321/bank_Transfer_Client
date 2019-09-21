@@ -71,7 +71,7 @@ td .layui-form-select {
 	<div class="layui-form-item">
 		<label class="layui-form-label">短信通知</label>
 		<div class="layui-input-block">
-			<input type="checkbox" name="switch" lay-skin="switch">
+			<input type="checkbox" name="message" lay-skin="message">
 		</div>
 	</div>
 	<div class="layui-form-item">

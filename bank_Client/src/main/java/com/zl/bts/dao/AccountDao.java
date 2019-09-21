@@ -8,5 +8,6 @@ import com.zl.bts.pojo.Account;
 public interface AccountDao {
 	//登入验证
 	public Account loginByPhone(Account a);
-
+	//账户限额
+	public int updataAccount(Long accountlimit);
 }
